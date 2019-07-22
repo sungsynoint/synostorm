@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Header = ({ checked }) => {
+const Header = ({ checked, survey }) => {
 
-const isChecked = () =>  checked === null || checked.checked   === false ? "disabled" : "";
-   
-return (
+    const isChecked = () => checked === null || checked.checked === false ? "disabled" : "";
+
+
+    return (
         <header className="page-title-box">
             <div className="page-title-right app-search ">
                 <div className="input-group">

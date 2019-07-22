@@ -2,23 +2,15 @@ import React, { Component } from "react";
 import uuidv4 from "uuid/v4";
 import AddSurvey from "./addSurvey";
 import SurveyTable from "./surveyTable";
-import SurveyCounter from "./surveyCounter";
+import { getSurveys, storeSurvey } from "../localStorage"
+
 
 class Surveys extends Component {
   state = {
-    surveys: [
-      {
-        title: "PPL1907004000 Rynek pracy",
-        completed: false,
-        id: uuidv4()
-      },
-      {
-        title: "O-ringen 2019 ",
-        completed: true,
-        id: uuidv4()
-      }
-    ]
+    surveys: getSurveys()
   };
+
+
   render() {
 
     const titleSubmit = e => {
@@ -26,12 +18,15 @@ class Surveys extends Component {
       const id = uuidv4();
       const surveys = [...this.state.surveys];
       surveys.push({
+        status: "draft",
         title: e.target.elements.title.value,
-        completed: false,
-        id,
-        checked: false
+        id: id.toString().substring(0, 8),
+        user: "testing@testing.com",
+        completes: 0,
+        language: "En",
+        created: new Date().toDateString()
       });
-
+      storeSurvey(surveys)
       e.target.elements.title.value = ""
       this.setState({
         surveys
@@ -39,13 +34,9 @@ class Surveys extends Component {
     };
 
 
-    const notCompleted = this.state.surveys.filter(function (survey) {
-      return !survey.completed;
-    });
 
     return (
       <div>
-        <SurveyCounter notCompleted={notCompleted} />
         <AddSurvey titleSubmit={titleSubmit} />
 
         <SurveyTable surveys={this.state.surveys} />

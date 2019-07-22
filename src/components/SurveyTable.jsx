@@ -9,25 +9,30 @@ class SurveyTable extends Component {
 
 
     const surveyStatus = (survey) => {
-      if (survey.completed) {
+      if (survey.status === "closed") {
         return <span className="badge badge-dark">Closed</span>
-      } else {
+      } else if (survey.status === "open") {
+
         return <span className="badge badge-success">Open</span>
+
+      } else {
+        return <span className="badge badge-warning text-white">Draft</span>
       }
     }
 
     const surveyCheck = (checked, survey) => {
+      console.log(survey)
       this.setState({
-        checked
+        checked,
       })
     };
 
-
     const { surveys } = this.props;
-
+    console.log(surveys)
     return (
       <div>
         <Header checked={this.state} />
+
         <table className="table table-hover table-centered mb-0">
           <thead>
             <tr>
@@ -62,12 +67,27 @@ class SurveyTable extends Component {
                     {surveyStatus(survey)}
                   </td>
 
-                  <td>
+                  <td className="w-25">
                     <Link to="/edit-survey">
                       <span className="border-0" key={survey.id}>
                         {survey.title}
                       </span>
                     </Link>
+                  </td>
+                  <td>
+                    {survey.id}
+                  </td>
+                  <td>
+                    {survey.user}
+                  </td>
+                  <td>
+                    {survey.completes}
+                  </td>
+                  <td>
+                    {survey.language}
+                  </td>
+                  <td>
+                    {survey.created}
                   </td>
                 </tr>
               );
