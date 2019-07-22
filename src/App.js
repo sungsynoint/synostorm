@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Surveys from "./components/Surveys";
-import EditSurvey from "./components/EditSurvey";
+import Surveys from "./components/surveys";
+import EditSurvey from "./components/editSurvey";
 
 class App extends Component {
   render() {

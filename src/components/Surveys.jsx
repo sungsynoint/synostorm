@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import uuidv4 from "uuid/v4";
-import AddSurvey from "./AddSurvey";
-import SurveyTable from "./SurveyTable";
-import SurveyCounter from "./SurveyCounter";
+import AddSurvey from "./addSurvey";
+import SurveyTable from "./surveyTable";
+import SurveyCounter from "./surveyCounter";
 
 class Surveys extends Component {
   state = {
@@ -20,6 +20,7 @@ class Surveys extends Component {
     ]
   };
   render() {
+
     const titleSubmit = e => {
       e.preventDefault();
       const id = uuidv4();
@@ -27,7 +28,8 @@ class Surveys extends Component {
       surveys.push({
         title: e.target.elements.title.value,
         completed: false,
-        id
+        id,
+        checked: false
       });
 
       e.target.elements.title.value = ""
@@ -36,29 +38,16 @@ class Surveys extends Component {
       });
     };
 
+
     const notCompleted = this.state.surveys.filter(function (survey) {
       return !survey.completed;
     });
 
     return (
       <div>
-        <header className="my-4 title">
-          <h2 className="text-dark"> My surveys </h2>
-        </header>
-
         <SurveyCounter notCompleted={notCompleted} />
         <AddSurvey titleSubmit={titleSubmit} />
-        <div className="app-search w-25">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search..."
-            />
-            <span className="mdi mdi-magnify" />
-            <div className="input-group-append" />
-          </div>
-        </div>
+
         <SurveyTable surveys={this.state.surveys} />
       </div>
     );
