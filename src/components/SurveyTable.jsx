@@ -5,8 +5,15 @@ import Header from "./header"
 
 class SurveyTable extends Component {
 
+  state = {
+    surveys: this.props.surveys
+  }
+
   render() {
 
+
+    const { surveys } = this.state;
+    const { deleteSurvey } = this.props
 
     const surveyStatus = (survey) => {
       if (survey.status === "closed") {
@@ -23,15 +30,16 @@ class SurveyTable extends Component {
     const surveyCheck = (checked, survey) => {
       console.log(survey)
       this.setState({
-        checked,
+        checked
       })
     };
 
-    const { surveys } = this.props;
-    console.log(surveys)
+
+
+
     return (
       <div>
-        <Header checked={this.state} />
+        <Header checked={this.state} surveys={this.state} deleteSurvey={deleteSurvey} />
 
         <table className="table table-hover table-centered mb-0">
           <thead>
@@ -68,7 +76,7 @@ class SurveyTable extends Component {
                   </td>
 
                   <td className="w-25">
-                    <Link to="/edit-survey">
+                    <Link to={`/edit-survey#${survey.id}`}>
                       <span className="border-0" key={survey.id}>
                         {survey.title}
                       </span>

@@ -11,7 +11,11 @@ class Surveys extends Component {
   };
 
 
+
   render() {
+
+    const surveys = getSurveys()
+    console.log(surveys)
 
     const titleSubmit = e => {
       e.preventDefault();
@@ -34,12 +38,15 @@ class Surveys extends Component {
     };
 
 
+    const deleteSurvey = (survey) => {
+      console.log(survey)
+    }
+
 
     return (
       <div>
         <AddSurvey titleSubmit={titleSubmit} />
-
-        <SurveyTable surveys={this.state.surveys} />
+        <SurveyTable surveys={this.state.surveys} deleteSurvey={deleteSurvey} />
       </div>
     );
   }
