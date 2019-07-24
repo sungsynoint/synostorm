@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const SurveyHeader = () => {
+const NavBar = () => {
     return <header className="page-title-box">
         <div className="page-title-right app-search mt-0">
             <div className="input-group">
@@ -23,4 +23,4 @@ const SurveyHeader = () => {
     </header>;
 }
 
-export default SurveyHeader;
+export default NavBar;

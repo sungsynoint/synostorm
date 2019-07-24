@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import uuidv4 from "uuid/v4";
-import AddSurvey from "./addSurvey";
-import SurveyTable from "./surveyTable";
 import { getSurveys, storeSurvey } from "../localStorage"
+import AddSurvey from "./AddSurvey";
+import Table from "./table/Table"
 
 
 class Surveys extends Component {
@@ -46,7 +46,7 @@ class Surveys extends Component {
     return (
       <div>
         <AddSurvey titleSubmit={titleSubmit} />
-        <SurveyTable surveys={this.state.surveys} deleteSurvey={deleteSurvey} />
+        <Table surveys={this.state.surveys} deleteSurvey={deleteSurvey} />
       </div>
     );
   }

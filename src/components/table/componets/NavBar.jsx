@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-class Header extends Component {
+class NavBar extends Component {
     state = {}
 
     render() {
@@ -41,4 +41,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default NavBar;
