@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uuidv4 from "uuid/v4";
+import moment from "moment";
 import { getSurveys, storeSurvey } from "../localStorage"
 import AddSurvey from "./common/AddSurvey";
 import Table from "./table/Table"
@@ -17,16 +18,17 @@ class Surveys extends Component {
     const titleSubmit = e => {
       e.preventDefault();
       const id = uuidv4();
+      const timeStamp = moment().valueOf();
       const surveys = [...this.state.surveys];
       const title = e.target.elements.title.value.toLowerCase().trim();
       surveys.push({
         status: "draft",
         title,
-        id: id.toString().substring(0, 8),
+        id,
         user: "testing@testing.com",
         completes: 0,
         language: "En",
-        created: new Date().toDateString()
+        created: timeStamp,
       });
 
       if (title.length > 1) {
@@ -64,8 +66,14 @@ class Surveys extends Component {
 
     console.log(this.state.surveys)
 
+
+
+
+
+
     return (
       <div>
+
         <NavBar deleteSurvey={deleteSurvey} />
         <AddSurvey titleSubmit={titleSubmit} />
         <Table surveys={this.state.surveys} deleteSurvey={deleteSurvey} surveyCheck={surveyCheck} />

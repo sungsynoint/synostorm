@@ -1,18 +1,13 @@
 import React from 'react';
 
-
-const TableHead = () => {
+const TableHead = ({ columns }) => {
     return (
         <thead>
-            <tr>
-                <th></th>
-                <th>Status</th>
-                <th>Title</th>
-                <th>Id</th>
-                <th>User</th>
-                <th>Completes</th>
-                <th>Language</th>
-                <th>Created</th>
+            <tr >
+                {columns.map(column => {
+                    return <th key={column.path || column.key}> {column.label} </th>
+                })}
+
             </tr>
         </thead>
     );

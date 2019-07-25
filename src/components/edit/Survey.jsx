@@ -64,7 +64,7 @@ class EditSurvey extends Component {
 
                         </div>
                     </li>
-                    <p className="pl-2">Id: <span className="text-primary h6"> {survey.id} </span></p>
+                    <p className="pl-2">Id: <span className="text-primary h6"> {survey.id.toString().substring(0, 8)} </span></p>
                 </ul>
             </div>
         );
