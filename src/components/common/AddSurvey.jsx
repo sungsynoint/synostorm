@@ -1,13 +1,13 @@
 import React from "react";
 
-const AddSuvey = ({ titleSubmit }) => {
+const AddSuvey = ({ createSurvey }) => {
   return (
     <main className="app-search">
       <section className="w-50 mt-3 form-group actions">
         <form
           className="actions__container"
           id="title_submit"
-          onSubmit={titleSubmit}
+          onSubmit={createSurvey}
         >
           <div className="input-group">
             <span className="mdi mdi-christianity"></span>

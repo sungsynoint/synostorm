@@ -8,9 +8,6 @@ const TableBody = ({ columns, surveys }) => {
         return _.get(item, column.path);
     };
 
-
-
-
     return (
         <tbody>
             {surveys.map(survey => {

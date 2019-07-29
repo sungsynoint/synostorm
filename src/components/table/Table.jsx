@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import moment from "moment"
 import TableHead from "./componets/TableHead"
 import TableBody from "./componets/TableBody"
 
@@ -28,7 +27,6 @@ class Table extends Component {
                 if (survey.status === "closed") {
                     return <span className="badge badge-dark">Closed</span>
                 } else if (survey.status === "open") {
-
                     return <span className="badge badge-success">Open</span>
 
                 } else {
@@ -46,7 +44,7 @@ class Table extends Component {
         },
         {
             label: "Id",
-            path: "id".toString().substring(0, 4),
+            path: "id".toString().substring(0, 2),
 
         }, {
             label: "User",
@@ -58,20 +56,20 @@ class Table extends Component {
             label: "Language",
             path: "language"
         }, {
-            label: "Created",
-            key: "created",
-            content: survey => { moment(survey.created).fromNow() },
+            label: "Edited",
+            path: "edited",
         }
     ]
 
     render() {
 
-        const { surveys, surveyCheck } = this.props;
+
+        const { surveys } = this.props;
         return (
             <div>
                 <table className="table table-hover table-centered mb-0">
                     <TableHead columns={this.columns} />
-                    <TableBody columns={this.columns} surveys={surveys} surveyCheck={surveyCheck} />
+                    <TableBody columns={this.columns} surveys={surveys} />
                 </table>
             </div>
         );

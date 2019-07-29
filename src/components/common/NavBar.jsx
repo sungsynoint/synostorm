@@ -1,6 +1,8 @@
 import React from 'react';
 
-const NavBar = ({ deleteSurvey, }) => {
+const NavBar = ({ deleteSurvey, copySurvey }) => {
+
+
 
     return (
         <header className="page-title-box">
@@ -15,13 +17,12 @@ const NavBar = ({ deleteSurvey, }) => {
                     <div className="input-group-append" />
                     <div className="page-buttons">
                         <button className="btn btn-secondary ml-2"
-                            disabled={true}
+                            onClick={() => copySurvey()}
                         >
                             <i className="mdi mdi-content-copy"></i>
                         </button>
 
                         <button className="btn btn-secondary ml-2"
-
                             onClick={() => deleteSurvey()}>
                             <i className="mdi mdi-delete-outline"></i>
                         </button>

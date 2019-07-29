@@ -15,7 +15,7 @@ class Surveys extends Component {
 
   render() {
 
-    const titleSubmit = e => {
+    const createSurvey = e => {
       e.preventDefault();
       const id = uuidv4();
       const timeStamp = moment().valueOf();
@@ -24,30 +24,30 @@ class Surveys extends Component {
       surveys.push({
         status: "draft",
         title,
-        id,
+        id: id.toString().substring(0, 8),
         user: "testing@testing.com",
         completes: 0,
         language: "En",
         created: timeStamp,
+        edited: moment(timeStamp).format("MMMM Do YYYY"),
         checked: false,
       });
 
+
+
       if (title.length > 1) {
+        const survey = surveys[surveys.length - 1]
         storeSurvey(surveys)
         e.target.elements.title.value = ""
-        this.setState({
-          surveys
-        });
+        this.setState({ surveys });
+        window.location.assign(`/edit-survey#${survey.id}`)
       }
 
     };
 
     const surveyCheck = (checked, survey) => {
       const surveys = [...this.state.surveys];
-
-      const surveyObj = surveys.find(s => {
-        return s.id === survey.id
-      });
+      const surveyObj = surveys.find(s => s.id === survey.id);
 
       const surveyChecked = surveyObj.checked = checked;
       const uniqueSurvey = !this.state.survey.includes(surveyObj)
@@ -63,23 +63,25 @@ class Surveys extends Component {
 
     };
 
-
-
     const deleteSurvey = () => {
-
-      const surveys = this.state.surveys.filter(survey => {
-        return !survey.checked
-      })
+      const surveys = this.state.surveys.filter(survey => !survey.checked)
+      storeSurvey(surveys)
       this.setState({ surveys })
     }
 
+    const copySurvey = () => {
+      const survey = [...this.state.survey.filter(s => s.id = Math.random())]
+      console.log(survey)
+      //  storeSurvey(surveys)
+      // this.setState({ survey })
+
+    }
 
 
     return (
       <div>
-
-        <NavBar deleteSurvey={deleteSurvey} />
-        <AddSurvey titleSubmit={titleSubmit} />
+        <NavBar deleteSurvey={deleteSurvey} surveys={this.state.surveys} copySurvey={copySurvey} />
+        <AddSurvey createSurvey={createSurvey} />
         <Table surveys={this.state.surveys} deleteSurvey={deleteSurvey} surveyCheck={surveyCheck} />
       </div >
     );

@@ -1,12 +1,13 @@
 [{
     "surveys": {
-        "status": "draft",
+        "status": "open",
         "title": "PPL1907004000 Rynek pracy",
-        "id": "000000",
+        "id": "id",
         "user": "testing@testing.com",
         "completes": "1",
         "language": "En",
-        "created": "0000"
+        "created": "timeStamp",
+        "checked": "false"
 
     }
 }]
