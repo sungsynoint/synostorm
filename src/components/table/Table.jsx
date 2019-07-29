@@ -46,7 +46,7 @@ class Table extends Component {
         },
         {
             label: "Id",
-            path: "id",
+            path: "id".toString().substring(0, 4),
 
         }, {
             label: "User",

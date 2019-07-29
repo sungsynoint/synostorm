@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from "lodash"
 
-const TableBody = ({ columns, surveys, surveyCheck }) => {
+const TableBody = ({ columns, surveys }) => {
 
     const renderCell = (item, column) => {
         if (column.content) return column.content(item);

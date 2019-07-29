@@ -10,7 +10,7 @@ import NavBar from "./common/NavBar"
 class Surveys extends Component {
   state = {
     surveys: getSurveys(),
-    surveysId: []
+    survey: []
   };
 
   render() {
@@ -29,6 +29,7 @@ class Surveys extends Component {
         completes: 0,
         language: "En",
         created: timeStamp,
+        checked: false,
       });
 
       if (title.length > 1) {
@@ -41,33 +42,36 @@ class Surveys extends Component {
 
     };
 
-
-
-    const surveyCheck = (checked, surveyId) => {
+    const surveyCheck = (checked, survey) => {
       const surveys = [...this.state.surveys];
-      const survey = surveys.find(survey => {
-        return survey.id === surveyId.id
+
+      const surveyObj = surveys.find(s => {
+        return s.id === survey.id
       });
 
-      const surveyCheked = survey.checked = checked
-      const uniqueId = !this.state.surveysId.includes(survey.id)
+      const surveyChecked = surveyObj.checked = checked;
+      const uniqueSurvey = !this.state.survey.includes(surveyObj)
 
-      if (surveyCheked && uniqueId) {
-        this.state.surveysId.push(survey.id)
-        console.log(this.state.surveysId)
+      if (surveyChecked && uniqueSurvey) {
+        this.state.survey.push(survey)
       }
+
+      if (!surveyChecked) {
+        const survey = this.state.survey.filter(td => td.id !== surveyObj.id);
+        this.setState({ survey });
+      }
+
     };
 
+
+
     const deleteSurvey = () => {
-      const { surveysId } = this.state
-      const surveys = this.state.surveys.filter(td => td.id !== surveysId.join());
+
+      const surveys = this.state.surveys.filter(survey => {
+        return !survey.checked
+      })
       this.setState({ surveys })
     }
-
-    console.log(this.state.surveys)
-
-
-
 
 
 
@@ -77,7 +81,7 @@ class Surveys extends Component {
         <NavBar deleteSurvey={deleteSurvey} />
         <AddSurvey titleSubmit={titleSubmit} />
         <Table surveys={this.state.surveys} deleteSurvey={deleteSurvey} surveyCheck={surveyCheck} />
-      </div>
+      </div >
     );
   }
 }

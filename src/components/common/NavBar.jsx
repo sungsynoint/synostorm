@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavBar = ({ deleteSurvey }) => {
+const NavBar = ({ deleteSurvey, }) => {
 
     return (
         <header className="page-title-box">
@@ -21,7 +21,7 @@ const NavBar = ({ deleteSurvey }) => {
                         </button>
 
                         <button className="btn btn-secondary ml-2"
-                            disabled={true}
+
                             onClick={() => deleteSurvey()}>
                             <i className="mdi mdi-delete-outline"></i>
                         </button>
