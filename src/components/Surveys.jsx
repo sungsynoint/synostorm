@@ -71,19 +71,19 @@ class Surveys extends Component {
 
 
     const copySurvey = () => {
-      const copy = [...this.state.survey];
-      const copied = copy.map(c => {
-        return ({ ...c })
-      });
-      const ahua = copied.filter(shep => {
+      const copySurvey = [...this.state.survey];
+      const copyObj = copySurvey.map(c => ({ ...c }));
+      const survey = copyObj.filter(s => {
         const id = uuidv4();
         return (
-          shep.title += " copy",
-          shep.id = id.toString().substring(0, 8)
+          s.checked = false,
+          s.title += " copy",
+          s.id = id.toString().substring(0, 8)
         )
       });
-      const surveys = [...this.state.surveys, ...ahua]
+      const surveys = [...this.state.surveys, ...survey]
       this.setState({ surveys })
+      storeSurvey(surveys)
     }
 
 

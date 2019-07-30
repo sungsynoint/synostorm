@@ -62,11 +62,9 @@ class Table extends Component {
     ]
 
     render() {
-
-
         const { surveys } = this.props;
         return (
-            <div>
+            <div className="card">
                 <table className="table table-hover table-centered mb-0">
                     <TableHead columns={this.columns} />
                     <TableBody columns={this.columns} surveys={surveys} />

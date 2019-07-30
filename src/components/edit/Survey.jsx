@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { getSurveys } from "../../localStorage"
-import NavBar from "./components/NavBar"
+import NavBar from "./components/common/NavBar"
 import DropDown from './components/DropDown';
+import Pages from './Pages';
 
 class EditSurvey extends Component {
     render() {
@@ -26,22 +27,17 @@ class EditSurvey extends Component {
 
         return (
             <div className="container mt-5">
-                <div className="navbar-custom">
-                    <NavBar />
-                    <DropDown survey={survey} badges={badges} />
-                </div>
-
                 <div className="row">
                     <div className="col-12">
-                        <div className="card">
-                            <div className="card-body">
-                                <h1>test</h1>
-                            </div>
-                        </div>
+                        <NavBar />
+                        <DropDown survey={survey} badges={badges} />
                     </div>
                 </div>
-
-
+                <div className="row">
+                    <div className="col-12">
+                        <Pages />
+                    </div>
+                </div>
             </div>
         );
     }
