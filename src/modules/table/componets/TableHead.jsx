@@ -5,7 +5,7 @@ const TableHead = ({ columns }) => {
         <thead className="thead-light">
             <tr >
                 {columns.map(column => {
-                    return <th key={column.path || column.key}> {column.label} </th>
+                    return <th className="text-primary" key={column.path || column.key}> {column.label} </th>
                 })}
 
             </tr>

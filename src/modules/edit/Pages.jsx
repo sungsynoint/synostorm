@@ -15,19 +15,19 @@ const Pages = () => {
 
         {
             icon: "mdi mdi-emoticon-cool",
-            label: "Satisfaction Matrix"
+            label: "Satisfaction matrix"
         },
         {
             icon: "mdi mdi-checkbox-multiple-blank-circle",
-            label: "Matrix Multiple"
+            label: "Matrix multiple"
         },
         {
             icon: "mdi mdi-format-list-bulleted",
-            label: "Dropdown List"
+            label: "Dropdown list"
         },
         {
             icon: "mdi mdi-format-list-bulleted",
-            label: "Double Dropdown List"
+            label: "Double dropdown list"
         },
         {
             icon: "mdi mdi-calendar-multiselect",
@@ -35,7 +35,7 @@ const Pages = () => {
         },
         {
             icon: "mdi mdi-radiobox-marked",
-            label: "Radio List"
+            label: "Radio list"
         },
         {
             icon: "mdi mdi-tent",
@@ -70,7 +70,7 @@ const Pages = () => {
             label: "Screen out"
         },
         {
-            icon: "mdi mdi-shield-key-outline",
+            icon: "mdi mdi-pokeball",
             label: "Quota full"
         },
         {
@@ -85,20 +85,17 @@ const Pages = () => {
         <div className="card" style={{ border: "2px dashed #eeeff5" }}>
             <div className="card-body">
                 <h4 className="header-title mb-4">Page 1</h4>
-                <form className="container">
-                    <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Enter question title" style={{ border: "2px dashed #eeeff5" }} />
+                <div className="row">
+                    <div className="col-8">
+                        <form>
+                            <div className="form-group">
+                                <input type="text" className="form-control" placeholder="Question Title" style={{ border: "2px dashed #eeeff5" }} />
+                            </div>
+                        </form>
                     </div>
-                </form>
-
-                <div className="card shadow-none">
-                    <div className="card-body">
-                        <h5 className="card-title mb-3">Question Type:</h5>
-                        <div className="row">
-                            <QuestionType columns={columns} />
-                        </div>
-                    </div>
+                    <QuestionType columns={columns} />
                 </div>
+
             </div>
 
         </div>
