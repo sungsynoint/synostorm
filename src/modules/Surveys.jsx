@@ -57,16 +57,15 @@ class Surveys extends Component {
       }
 
       if (!surveyChecked) {
-        const survey = this.state.survey.filter(td => td.id !== surveyObj.id);
-        this.setState({ survey });
+        this.setState({ survey: [] });
       }
 
     };
 
     const deleteSurvey = () => {
       const surveys = this.state.surveys.filter(survey => !survey.checked)
+      this.setState({ surveys, survey: [] })
       storeSurvey(surveys)
-      this.setState({ surveys })
     }
 
 
