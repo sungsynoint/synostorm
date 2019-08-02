@@ -2,8 +2,6 @@ import React from 'react';
 
 const NavBar = ({ deleteSurvey, copySurvey }) => {
 
-
-
     return (
         <header className="page-title-box">
             <div className="page-title-right app-search ">

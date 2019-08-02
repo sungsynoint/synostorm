@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getSurveys } from "../../localStorage"
-import NavBar from "./components/common/NavBar"
-import DropDown from './components/DropDown';
+import NavBar from "./common/NavBar"
+import DropDown from "./common/DropDown"
 import Pages from './Pages';
 
 class EditSurvey extends Component {
@@ -23,7 +23,6 @@ class EditSurvey extends Component {
             }
             return styles + badge;
         }
-
 
         return (
             <div className="container mt-5">

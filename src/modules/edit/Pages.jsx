@@ -1,105 +1,91 @@
-import React from 'react';
-import QuestionType from './components/QuestionType';
+import React, { Component } from 'react';
+import QuestionType from './common/QuestionType';
+import MatrixCustom from "./components/MatrixCustom"
 
 
-const Pages = () => {
+class Pages extends Component {
+    state = {
+        title: ""
+    }
 
-    const columns = [
-        {
-            icon: "mdi mdi-matrix",
-            label: "Matrix (Custom)"
-        }, {
-            icon: "mdi mdi-apple-keyboard-option",
-            label: "Matrix (10)"
-        },
+    render() {
 
-        {
-            icon: "mdi mdi-emoticon-cool",
-            label: "Satisfaction matrix"
-        },
-        {
-            icon: "mdi mdi-checkbox-multiple-blank-circle",
-            label: "Matrix multiple"
-        },
-        {
-            icon: "mdi mdi-format-list-bulleted",
-            label: "Dropdown list"
-        },
-        {
-            icon: "mdi mdi-format-list-bulleted",
-            label: "Double dropdown list"
-        },
-        {
-            icon: "mdi mdi-calendar-multiselect",
-            label: "Date"
-        },
-        {
-            icon: "mdi mdi-radiobox-marked",
-            label: "Radio list"
-        },
-        {
-            icon: "mdi mdi-tent",
-            label: "Multiple choices"
-        },
-        {
-            icon: "mdi mdi-radiobox-marked",
-            label: "Multiple short text"
-        },
-        {
-            icon: "mdi mdi-nfc-variant",
-            label: "Multiple numerical input"
-        },
-        {
-            icon: "mdi mdi-ninja",
-            label: "Long free text"
-        },
-        {
-            icon: "mdi mdi-blur",
-            label: "Short free text"
-        },
-        {
-            icon: "mdi mdi-blur-linear",
-            label: "Numerical input"
-        },
-        {
-            icon: "mdi mdi-brain",
-            label: "Text display"
-        },
-        {
-            icon: "mdi mdi-clipboard-text-play",
-            label: "Screen out"
-        },
-        {
-            icon: "mdi mdi-pokeball",
-            label: "Quota full"
-        },
-        {
-            icon: "mdi mdi-alien",
-            label: "Ranking"
-        },
-    ]
+        const columns = [
+            {
+                label: "Matrix (Custom)"
+            }, {
+                label: "Matrix (10)"
+            },
+
+            {
+                label: "Satisfaction matrix"
+            },
+            {
+                label: "Matrix multiple"
+            },
+            {
+                label: "Dropdown list"
+            },
+            {
+                label: "Double dropdown list"
+            },
+            {
+                label: "Date"
+            },
+            {
+                label: "Radio list"
+            },
+            {
+                label: "Multiple choices"
+            },
+            {
+                label: "Multiple short text"
+            },
+            {
+                label: "Multiple numerical input"
+            },
+            {
+                label: "Long free text"
+            },
+            {
+                label: "Short free text"
+            },
+            {
+                label: "Numerical input"
+            },
+            {
+                label: "Text display"
+            },
+            {
+                label: "Screen out"
+            },
+            {
+                label: "Quota full"
+            },
+            {
+                label: "Ranking"
+            },
+        ]
 
 
+        const setTitle = (value) => {
+            const title = this.state;
+            title.title = value.toLowerCase();
+            this.setState({ title })
+            console.log(this.state.title)
+        }
 
-    return (
-        <div className="card" style={{ border: "2px dashed #eeeff5" }}>
-            <div className="card-body">
-                <h4 className="header-title mb-4">Page 1</h4>
-                <div className="row">
-                    <div className="col-8">
-                        <form>
-                            <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Question Title" style={{ border: "2px dashed #eeeff5" }} />
-                            </div>
-                        </form>
-                    </div>
-                    <QuestionType columns={columns} />
+
+        return (
+            <div className="card" style={{ border: "2px dashed #eeeff5" }}>
+                <div className="card-body">
+                    <h4 className="header-title mb-4">Page 1</h4>
+                    <QuestionType columns={columns} setTitle={setTitle} />
+                    <MatrixCustom />
                 </div>
-
             </div>
-
-        </div>
-    );
+        );
+    }
 }
 
 export default Pages;

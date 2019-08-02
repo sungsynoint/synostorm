@@ -34,7 +34,6 @@ class Surveys extends Component {
       });
 
 
-
       if (title.length > 1) {
         const survey = surveys[surveys.length - 1]
         storeSurvey(surveys)
