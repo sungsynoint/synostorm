@@ -1,56 +1,69 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+const MatixCustom = () => {
+
+    const onSelect = (e) => {
+        e.preventDefault()
+    }
+
+    // const FancyButton = (() => (
+
+    //     <React.Fragment>
+    //         {this.state.row.map(r => <button className="FancyButton">
+    //             {r.label}
+    //         </button>)}
+    //     </React.Fragment>
+
+    // ));
 
 
+    const onQuickAdd = (value) => {
+        const row = this.state.row;
 
-class MatixCustom extends Component {
-    state = {}
-    render() {
-        return (<div className="row">
-            <div className="col-7 pr-3">
-                <form>
-                    <div className="form-row">
-                        <div className="col-1">
-                            <input className="form-control p-1" type="number" name="number"></input>
-                        </div>
-                        <div className="col-9">
-                            <div className="input-group">
-                                <input type="text" className="form-control" placeholder="Enter row label" />
-                            </div>
-                        </div>
-                        <div className="col-2">
-                            <div className="button-list row">
-                                <button className="btn btn-light border">
-                                    <i className="mdi mdi-table-row-plus-after"></i>
-                                </button>
-                                <button className="btn btn-light border">
-                                    <i className="mdi mdi-table-row-remove"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+        console.log(value, row)
+    }
+
+
+    return (<div className="row">
+        <div className="col-7 pr-3">
+            <div>
+                {/* <FancyButton /> */}
             </div>
-            <div className="col-5">
-                <div className="row">
-                    <div className="col-8 px-1">
-                        <div className="form-group mb-3">
-                            <textarea className="form-control" id="example-textarea" rows="5"></textarea>
+            <form onClick={onSelect}>
+                <div className="form-row pb-1">
+                    <div className="col-1">
+                        <input type="text" name="number" className="form-control p-1"></input>
+                    </div>
+                    <div className="col-9">
+                        <div className="input-group">
+                            <input type="text" className="form-control" placeholder="Enter row label" />
                         </div>
                     </div>
-                    <div className="col-4">
-                        <div className="text-center">
-                            <input className="btn btn-block btn-sm btn-dark" type="submit" value="Quick add" />
-                            <input className="btn btn-block btn-sm btn-dark" type="submit" value="Replace" disabled />
-                            <input className="btn btn-block btn-sm btn-dark" type="reset" value="Reset" disabled />
-                            <input className="btn btn-block btn-sm btn-info" type="submit" value="Save" disabled />
+                    <div className="col-2">
+                        <div className="button-list row">
+                            <button className="btn btn-light border">
+                                <i className="mdi mdi-table-row-plus-after"></i>
+                            </button>
+                            <button className="btn btn-light border">
+                                <i className="mdi mdi-table-row-remove"></i>
+                            </button>
                         </div>
                     </div>
-
+                </div>
+            </form>
+        </div>
+        <div className="col-5">
+            <div className="row">
+                <div className="col-12 pl-1">
+                    <div className="form-group mb-3">
+                        <textarea className="form-control" onChange={(e) => onQuickAdd(e.target.value)} rows="3" placeholder="Quick add..." />
+                    </div>
                 </div>
             </div>
+        </div>
 
-        </div>);
-    }
+    </div>);
 }
+
 
 export default MatixCustom;

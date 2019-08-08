@@ -1,39 +1,32 @@
 import React from 'react';
 
 
-const QuestionType = ({ columns, setTitle }) => {
+const QuestionType = ({ questions, setTitle, RenderQuestion }) => {
+
     return (
         <div className="row">
-
             <div className="col-7">
-                <form>
+                <form >
                     <div className="form-group">
                         <input
                             onInput={(e) => setTitle(e.target.value)}
-                            type="text"
                             className="form-control"
                             placeholder="Question Title"
-                            style={{ border: "2px dashed #eeeff5" }}
+                            style={{ border: "2px dashed #eeeff5", }}
                         />
                     </div>
                 </form>
             </div>
-
             <div className="col-5 pl-1">
-                <form onChange={e => console.log(e.target)}>
-                    <select id="inputState" className="form-control" style={{ border: "2px dashed #eeeff5" }}>
-                        <option>Question Type:</option>
-                        {columns.map(column => <option value={column.label} key={column.label}>{column.label}</option>
-                        )}
-                    </select>
-                </form>
+                <select onChange={e => RenderQuestion(e.target.value)} className="form-control" style={{ border: "2px dashed #eeeff5" }} >
+                    <option>Question Type:</option>
+                    {questions.map(option => <option value={option.label} key={option.label}>{option.label}</option>
+                    )}
+                </select>
             </div>
         </div>
     )
-
 }
-
-
 
 
 export default QuestionType;

@@ -5,7 +5,6 @@ import TableBody from "./componets/TableBody"
 
 
 class Table extends Component {
-
     columns = [
         {
             label: "",
@@ -44,7 +43,7 @@ class Table extends Component {
         },
         {
             label: "Id",
-            path: "id".toString().substring(0, 2),
+            path: "id",
 
         }, {
             label: "User",
