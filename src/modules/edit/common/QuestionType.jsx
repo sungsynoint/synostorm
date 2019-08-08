@@ -10,7 +10,7 @@ const QuestionType = ({ questions, setTitle, RenderQuestion }) => {
                     <div className="form-group">
                         <input
                             onInput={(e) => setTitle(e.target.value)}
-                            className="form-control"
+                            className="form-control font-weight-bold"
                             placeholder="Question Title"
                             style={{ border: "2px dashed #eeeff5", }}
                         />

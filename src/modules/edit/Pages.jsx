@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import QuestionType from './common/QuestionType';
 import MatrixCustom from "./components/MatrixCustom"
-
+import FreeText from "./components/FreeText"
 
 class Pages extends Component {
     state = {
         questions: [
             {
                 label: "Matrix (Custom)",
+
                 content: <MatrixCustom />
             },
             {
@@ -55,8 +56,8 @@ class Pages extends Component {
                 content: <MatrixCustom />
             },
             {
-                label: "Short free text",
-                content: <MatrixCustom />
+                label: "Free text",
+                content: <FreeText />
             },
             {
                 label: "Numerical input",
@@ -93,7 +94,6 @@ class Pages extends Component {
                 const questions = this.state.questions.find(question => question.label === value);
                 if (questions) {
                     this.setState({ renderQuestion: questions.content })
-                    console.log(this.state.renderQuestion)
                 } else {
                     throw new Error("You must select a question")
                 }
@@ -106,10 +106,9 @@ class Pages extends Component {
         return (
             <div className="card" style={{ border: "2px dashed #eeeff5" }}>
                 <div className="card-body">
-                    <textarea className="header-title mb-4 h4" style={{ resize: "none", border: "0px" }} defaultValue="Page 1" />
+                    <textarea className="header-title mb-4 h4 w-100" style={{ resize: "none", border: "0px" }} defaultValue="Page 1" />
                     <QuestionType questions={this.state.questions} setTitle={setTitle} RenderQuestion={RenderQuestion} />
                     {this.state.renderQuestion}
-
                 </div>
             </div>
         );

@@ -6,17 +6,6 @@ const MatixCustom = () => {
         e.preventDefault()
     }
 
-    // const FancyButton = (() => (
-
-    //     <React.Fragment>
-    //         {this.state.row.map(r => <button className="FancyButton">
-    //             {r.label}
-    //         </button>)}
-    //     </React.Fragment>
-
-    // ));
-
-
     const onQuickAdd = (value) => {
         const row = this.state.row;
 
@@ -26,9 +15,7 @@ const MatixCustom = () => {
 
     return (<div className="row">
         <div className="col-7 pr-3">
-            <div>
-                {/* <FancyButton /> */}
-            </div>
+
             <form onClick={onSelect}>
                 <div className="form-row pb-1">
                     <div className="col-1">
