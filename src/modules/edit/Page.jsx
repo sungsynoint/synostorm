@@ -3,7 +3,7 @@ import QuestionType from './common/QuestionType';
 import MatrixCustom from "./components/MatrixCustom"
 import FreeText from "./components/FreeText"
 
-class Pages extends Component {
+class Page extends Component {
     state = {
         questions: [
             {
@@ -80,6 +80,7 @@ class Pages extends Component {
                 content: <MatrixCustom />
             },
         ],
+        question: []
     }
 
     render() {
@@ -93,7 +94,9 @@ class Pages extends Component {
             try {
                 const questions = this.state.questions.find(question => question.label === value);
                 if (questions) {
-                    this.setState({ renderQuestion: questions.content })
+                    const question = [...this.state.question, questions.content]
+                    console.log(question)
+                    this.setState({ question })
                 } else {
                     throw new Error("You must select a question")
                 }
@@ -103,16 +106,21 @@ class Pages extends Component {
 
         }
 
+        const getQuestion = () => this.state.question.find(question => question);
+
+        const {length} = this.props;
+        console.log(length)
         return (
             <div className="card" style={{ border: "2px dashed #eeeff5" }}>
                 <div className="card-body">
                     <textarea className="header-title mb-4 h4 w-100" style={{ resize: "none", border: "0px" }} defaultValue="Page 1" />
                     <QuestionType questions={this.state.questions} setTitle={setTitle} RenderQuestion={RenderQuestion} />
                     {this.state.renderQuestion}
+                    {getQuestion()}
                 </div>
             </div>
         );
     }
 }
 
-export default Pages;
+export default Page;
