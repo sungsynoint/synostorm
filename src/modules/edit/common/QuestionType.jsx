@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const QuestionType = ({ questions, setTitle, RenderQuestion }) => {
+const QuestionType = ({ questions, setTitle, renderQuestion }) => {
 
     return (
         <div className="row">
@@ -18,7 +18,7 @@ const QuestionType = ({ questions, setTitle, RenderQuestion }) => {
                 </form>
             </div>
             <div className="col-5 pl-1">
-                <select onChange={e => RenderQuestion(e.target.value)} className="form-control" style={{ border: "2px dashed #eeeff5" }} >
+                <select onChange={e => renderQuestion(e.target.value)} className="form-control" style={{ border: "2px dashed #eeeff5" }} >
                     <option>Question Type:</option>
                     {questions.map(option => <option value={option.label} key={option.label}>{option.label}</option>
                     )}

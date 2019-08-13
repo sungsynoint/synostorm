@@ -3,8 +3,8 @@ import uuidv4 from "uuid/v4";
 import moment from "moment";
 import { getSurveys, storeSurvey } from "../localStorage"
 import AddSurvey from "./common/AddSurvey";
-import Table from "./table/Table"
 import NavBar from "./common/NavBar"
+import Table from "./table/Table"
 
 
 class Surveys extends Component {

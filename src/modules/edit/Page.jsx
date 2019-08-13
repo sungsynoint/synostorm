@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import QuestionType from './common/QuestionType';
+import AddPage from "./common/AddPage"
 import MatrixCustom from "./components/MatrixCustom"
 import FreeText from "./components/FreeText"
 
@@ -8,7 +9,6 @@ class Page extends Component {
         questions: [
             {
                 label: "Matrix (Custom)",
-
                 content: <MatrixCustom />
             },
             {
@@ -89,13 +89,12 @@ class Page extends Component {
             console.log(value)
         }
 
-        const RenderQuestion = (value) => {
 
+        const renderQuestion = (value) => {
             try {
                 const questions = this.state.questions.find(question => question.label === value);
                 if (questions) {
-                    const question = [...this.state.question, questions.content]
-                    console.log(question)
+                    const question = [questions.content]
                     this.setState({ question })
                 } else {
                     throw new Error("You must select a question")
@@ -103,20 +102,27 @@ class Page extends Component {
             } catch (e) {
                 this.setState({ error: e.message })
             }
-
         }
+
+        const { onAddPage } = this.props;
 
         const getQuestion = () => this.state.question.find(question => question);
 
-        const {length} = this.props;
-        console.log(length)
+
+
         return (
-            <div className="card" style={{ border: "2px dashed #eeeff5" }}>
-                <div className="card-body">
-                    <textarea className="header-title mb-4 h4 w-100" style={{ resize: "none", border: "0px" }} defaultValue="Page 1" />
-                    <QuestionType questions={this.state.questions} setTitle={setTitle} RenderQuestion={RenderQuestion} />
-                    {this.state.renderQuestion}
-                    {getQuestion()}
+            <div>
+
+                <div className="mb-3">
+                    <div className="card" style={{ border: "2px dashed #eeeff5" }}>
+                        <div className="card-body">
+                            <textarea className="heaer-title mb-4 h4 w-100" style={{ resize: "none", border: "0px" }} defaultValue={`Page`} />
+                            <QuestionType questions={this.state.questions} setTitle={setTitle} renderQuestion={renderQuestion} />
+                            {this.state.renderQuestion}
+                            {getQuestion()}
+                        </div>
+                    </div>
+                    <AddPage onAddPage={onAddPage} />
                 </div>
             </div>
         );
