@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import uuid from "uuid/v4"
 import Page from "./Page"
 
 class Pages extends Component {
 
     componentWillMount() {
-        this.setState({ pages: [<Page />] })
+        this.setState({ pages: [] })
     }
 
     render() {
@@ -16,6 +17,8 @@ class Pages extends Component {
             console.log("it work")
         }
 
+        console.log(this.state.pages)
+
         const getPage = () => {
             const page = <Page pages={this.state.pages} onAddPage={onAddPage} />
             return page;
@@ -24,7 +27,7 @@ class Pages extends Component {
         return (
             <div>
                 <Page onAddPage={onAddPage} pages={this.state.pages} />
-                {this.state.pages.map(page => page)}
+                {this.state.pages.map(page => <div key={uuid()}> {page}</div>)}
             </div>
 
         )

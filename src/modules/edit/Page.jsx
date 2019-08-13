@@ -109,7 +109,6 @@ class Page extends Component {
         const getQuestion = () => this.state.question.find(question => question);
 
 
-
         return (
             <div>
 
@@ -124,6 +123,7 @@ class Page extends Component {
                     </div>
                     <AddPage onAddPage={onAddPage} />
                 </div>
+
             </div>
         );
     }
