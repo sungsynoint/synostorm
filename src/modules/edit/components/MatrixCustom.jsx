@@ -1,56 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
+import uuid from "uuid/v4"
+import RowInput from './common/RowInput';
 
-const MatixCustom = () => {
 
-    const onSelect = (e) => {
-        e.preventDefault()
+class MatixCustom extends Component {
+    state = {
+        quickAdd: "",
+        label: "",
+        input: []
     }
 
-    const onQuickAdd = (value) => {
-        const row = this.state.row;
-
-        console.log(value, row)
-    }
 
 
-    return (<div className="row">
-        <div className="col-7 pr-3">
+    render() {
 
-            <form onClick={onSelect}>
-                <div className="form-row pb-1">
-                    <div className="col-1">
-                        <input type="text" name="number" className="form-control p-1"></input>
-                    </div>
-                    <div className="col-9">
-                        <div className="input-group">
-                            <input type="text" className="form-control" placeholder="Enter row label" />
-                        </div>
-                    </div>
-                    <div className="col-2">
-                        <div className="button-list row">
-                            <button className="btn btn-light border">
-                                <i className="mdi mdi-table-row-plus-after"></i>
-                            </button>
-                            <button className="btn btn-light border">
-                                <i className="mdi mdi-table-row-remove"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div className="col-5">
+
+        const onQuickAdd = (value) => {
+            console.log(value)
+        }
+
+
+        const onEnterLabel = (value) => {
+            console.log(value)
+        }
+
+
+        const onAddRow = (e) => {
+            const input = [...this.state.input];
+            const row = <RowInput onEnterLabel={onEnterLabel} state={this.state.label} onAddRow={onAddRow} key={uuid()} />
+            input.push(row)
+            this.setState({ input })
+
+        }
+        console.log(this.state.input)
+
+        return (
             <div className="row">
-                <div className="col-12 pl-1">
-                    <div className="form-group mb-3">
-                        <textarea className="form-control" onChange={(e) => onQuickAdd(e.target.value)} rows="3" placeholder="Quick add..." />
+                <div className="col-7 pr-3">
+                    <RowInput key={uuid()} value={this.label} onEnterLabel={onEnterLabel} />
+                    {this.state.input}
+
+                    <span className="btn-block text-center" onClick={(e) => onAddRow(e)}>
+                        <i className="mdi mdi-plus-circle-outline"></i>
+                        Add another row
+                    </span>
+
+                </div>
+                <div className="col-5">
+                    <div className="row">
+                        <div className="col-12 pl-1">
+                            <div className="form-group mb-3">
+                                <textarea className="form-control" onChange={(e) => onQuickAdd(e.target.value)} rows="3" placeholder="Quick add..." />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    </div>);
+            </div>
+        );
+    }
 }
 
-
 export default MatixCustom;
+
+
+
+
+
+
+
+

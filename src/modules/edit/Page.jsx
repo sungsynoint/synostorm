@@ -3,6 +3,7 @@ import QuestionType from './common/QuestionType';
 import AddPage from "./common/AddPage"
 import MatrixCustom from "./components/MatrixCustom"
 import FreeText from "./components/FreeText"
+import PageTitle from './common/PageTitle';
 
 class Page extends Component {
     state = {
@@ -108,23 +109,23 @@ class Page extends Component {
 
         const getQuestion = () => this.state.question.find(question => question);
 
-
         return (
-            <div>
 
-                <div className="mb-3">
-                    <div className="card" style={{ border: "2px dashed #eeeff5" }}>
-                        <div className="card-body">
-                            <textarea className="heaer-title mb-4 h4 w-100" style={{ resize: "none", border: "0px" }} defaultValue={`Page`} />
-                            <QuestionType questions={this.state.questions} setTitle={setTitle} renderQuestion={renderQuestion} />
-                            {this.state.renderQuestion}
-                            {getQuestion()}
+            <div className="mb-3">
+                <div className="card" style={{ border: "2px dashed #eeeff5" }}>
+                    <div className="card-body">
+                        <div className="button-list float-right">
+                            <button className="btn btn-secondary btn-sm" disabled>Copy</button>
+                            <button className="btn btn-secondary btn-sm" disabled>Delete</button>
                         </div>
+                        <PageTitle />
+                        <QuestionType questions={this.state.questions} setTitle={setTitle} renderQuestion={renderQuestion} />
+                        {getQuestion()}
                     </div>
-                    <AddPage onAddPage={onAddPage} />
                 </div>
-
+                <AddPage onAddPage={onAddPage} />
             </div>
+
         );
     }
 }
