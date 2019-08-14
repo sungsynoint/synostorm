@@ -11,17 +11,18 @@ class Pages extends Component {
     render() {
         const onAddPage = () => {
             const pages = [...this.state.pages]
-            const page = <Page pages={this.state.pages} onAddPage={onAddPage} />
+            const page = <Page pages={this.state.pages} onAddPage={onAddPage} key={uuid()} />
             pages.push(page)
             this.setState({ pages })
-            console.log("it work")
+
         }
 
+        console.log(this.state.pages)
 
         return (
             <div>
                 <Page onAddPage={onAddPage} />
-                {this.state.pages.map(page => <div key={uuid()}>{page}</div>)}
+                {this.state.pages}
             </div>
 
         )
