@@ -16,9 +16,6 @@ class Pages extends Component {
             this.setState({ pages })
 
         }
-
-        console.log(this.state.pages)
-
         return (
             <div>
                 <Page onAddPage={onAddPage} />
