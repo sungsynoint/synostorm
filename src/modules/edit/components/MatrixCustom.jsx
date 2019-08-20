@@ -4,12 +4,14 @@ import RowInput from './common/RowInput';
 import AddRow from './common/AddRow';
 import TextArea from './common/TextArea';
 import NavItems from './common/NavItems';
+import ColumnInput from './common/ColumnInput';
+import AddColumn from './common/AddColumn';
 
 
 class MatixCustom extends Component {
     state = {
-
-        input: [<RowInput key={uuid()} />]
+        rowInput: [<RowInput key={uuid()} />],
+        columnInput: [<ColumnInput key={uuid()} />]
     }
 
 
@@ -22,15 +24,28 @@ class MatixCustom extends Component {
 
 
         const onAddRow = () => {
-            const input = [...this.state.input];
+            const rowInput = [...this.state.rowInput];
             const row = <RowInput key={uuid()} />
-            input.push(row)
-            this.setState({ input })
+            rowInput.push(row)
+            this.setState({ rowInput })
         }
 
         const onDeleteRow = (row) => {
-            const input = this.state.input.filter(i => i.key !== row.key)
-            this.setState({ input })
+            const rowInput = this.state.rowInput.filter(i => i.key !== row.key)
+            this.setState({ rowInput })
+        }
+
+
+        const onDeleteColumn = (column) => {
+            const columnInput = this.state.columnInput.filter(i => i.key !== column.key)
+            this.setState({ columnInput })
+        }
+
+        const onAddColumn = () => {
+            const columnInput = [...this.state.columnInput];
+            const column = <RowInput key={uuid()} />
+            columnInput.push(column)
+            this.setState({ columnInput })
         }
 
 
@@ -42,7 +57,7 @@ class MatixCustom extends Component {
                         <div className="tab-pane active" id="row">
                             <div className="row">
                                 <div className="col-7 pr-0">
-                                    <RowInput input={this.state.input} onDeleteRow={onDeleteRow} />
+                                    <RowInput row={this.state.rowInput} onDeleteRow={onDeleteRow} />
                                     <AddRow onAddRow={onAddRow} />
                                 </div>
                                 <TextArea onQuickAdd={onQuickAdd} />
@@ -50,10 +65,15 @@ class MatixCustom extends Component {
 
                         </div>
                         <div className="tab-pane show" id="column">
-                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                            <p className="mb-0">Leggings occaecat dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                        </div>
 
+                            <div className="row">
+                                <div className="col-7 pr-0">
+                                    <ColumnInput column={this.state.columnInput} onDeleteColumn={onDeleteColumn} />
+                                    <AddColumn onAddColumn={onAddColumn} />
+                                </div>
+                                <TextArea onQuickAdd={onQuickAdd} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

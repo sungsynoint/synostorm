@@ -7,14 +7,14 @@ class RowInput extends Component {
     }
 
     render() {
-        const { input, onDeleteRow } = this.props;
+        const { row, onDeleteRow } = this.props;
         return (
             <div>
-                {input.map(i => {
+                {row.map(i => {
                     return (
                         <div className="form-row pb-1" key={i.key}>
                             <div className="col-1">
-                                <input type="text" name="number" className="form-control p-1" defaultValue={`${input.length}`}></input>
+                                <input type="text" name="number" className="form-control p-1" defaultValue={`${row.length}`}></input>
                             </div>
                             <div className="col-9">
                                 <div className="input-group">
