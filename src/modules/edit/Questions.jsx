@@ -21,10 +21,12 @@ class Questions extends Component {
 
         return (
             <React.Fragment>
-                <div className="card-body">
+                <div className="card-body pt-2">
                     {this.state.questions}
                 </div>
-                <AddQuestion onAddQuestion={onAddQuestion} />
+                <div className="mt-1">
+                    <AddQuestion onAddQuestion={onAddQuestion} />
+                </div>
             </React.Fragment>
         );
     }

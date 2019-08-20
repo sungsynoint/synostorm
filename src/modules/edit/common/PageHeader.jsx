@@ -8,7 +8,7 @@ const PageHeader = () => {
                 <button className="btn btn-secondary btn-sm" disabled>Copy</button>
                 <button className="btn btn-secondary btn-sm" disabled>Delete</button>
             </div>
-            <textarea className="h4 w-50" style={{ resize: "none", border: "0px" }} defaultValue={`Page`} />
+            <textarea className="h4 w-50 text-dark" style={{ resize: "none", border: "0px", height: "27px" }} defaultValue={`Page`} />
         </div>
     )
 }

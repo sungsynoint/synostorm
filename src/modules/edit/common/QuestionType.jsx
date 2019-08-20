@@ -4,7 +4,7 @@ import React from 'react';
 const QuestionType = ({ questions, setTitle, renderQuestion }) => {
 
     return (
-        <div className="row">
+        <div className="row my-2">
             <div className="col-7">
                 <form >
                     <div className="form-group">
