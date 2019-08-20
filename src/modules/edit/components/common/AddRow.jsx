@@ -3,10 +3,10 @@ import React from 'react';
 
 const AddRow = ({ onAddRow }) => {
     return (
-        <span className="btn-block text-center my-2" onClick={(e) => onAddRow(e)}>
-            <i className="mdi mdi-plus-circle-outline mdi mdi-plus-circle-outline mr-2"></i>
-            Add another row
-        </span>
+        <p className="text-muted btn text-left my-1 pl-1" onClick={(e) => onAddRow(e)}>
+            <i className="mdi mdi-table-row-plus-after mr-4" />
+            Add row
+        </p>
     );
 }
 

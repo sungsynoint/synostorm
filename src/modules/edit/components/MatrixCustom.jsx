@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import uuid from "uuid/v4"
 import RowInput from './common/RowInput';
 import AddRow from './common/AddRow';
+import TextArea from './common/TextArea';
+import NavItems from './common/NavItems';
 
 
 class MatixCustom extends Component {
@@ -13,7 +15,7 @@ class MatixCustom extends Component {
 
 
     render() {
-  
+
         const onQuickAdd = (value) => {
             console.log(value)
         }
@@ -33,19 +35,25 @@ class MatixCustom extends Component {
 
 
         return (
-            <div className="row">
-                <div className="col-7 pr-3">
-                    <RowInput input={this.state.input} onDeleteRow={onDeleteRow} />
-                    <AddRow onAddRow={onAddRow} />
-                </div>
-
-                <div className="col-5">
-                    <div className="row">
-                        <div className="col-12 pl-1">
-                            <div className="form-group mb-3">
-                                <textarea className="form-control" id="textareabox" onChange={(e) => onQuickAdd(e.target.value)} rows="3" placeholder="Quick add..." />
+            <div className="row pb-5">
+                <div className="col-12">
+                    <NavItems />
+                    <div className="tab-content">
+                        <div className="tab-pane active" id="row">
+                            <div className="row">
+                                <div className="col-7 pr-0">
+                                    <RowInput input={this.state.input} onDeleteRow={onDeleteRow} />
+                                    <AddRow onAddRow={onAddRow} />
+                                </div>
+                                <TextArea onQuickAdd={onQuickAdd} />
                             </div>
+
                         </div>
+                        <div className="tab-pane show" id="column">
+                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+                            <p className="mb-0">Leggings occaecat dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                        </div>
+
                     </div>
                 </div>
             </div>

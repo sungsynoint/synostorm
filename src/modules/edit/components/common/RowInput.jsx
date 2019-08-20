@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class RowInput extends Component {
     state = {
         quickAdd: [],
