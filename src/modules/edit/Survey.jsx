@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getSurveys } from "../../localStorage"
 import SurveyStatus from "./common/SurveyStatus"
-import NavBar from "./common/NavBar"
+import NavBar from "./common/TapBar"
 import Pages from './Pages';
 
 class EditSurvey extends Component {

@@ -7,7 +7,7 @@ class RowInput extends Component {
     }
 
     render() {
-        const { row, onDeleteRow } = this.props;
+        const { row, onDeleteRow, label, deleteIcon } = this.props;
         return (
             <div>
                 {row.map(i => {
@@ -18,17 +18,16 @@ class RowInput extends Component {
                             </div>
                             <div className="col-9">
                                 <div className="input-group">
-                                    <input type="text" className="form-control" placeholder="Enter row label" />
+                                    <input type="text" className="form-control" placeholder={label} />
                                 </div>
 
                             </div>
                             <div className="col-2">
                                 <div className="button-list row">
                                     <button className="btn btn-light border" onClick={() => onDeleteRow(i)}>
-                                        <i className="mdi mdi-table-row-remove"></i>
+                                        <i className={`mdi ${deleteIcon}`}></i>
                                     </button>
                                 </div>
-
                             </div>
                         </div>
                     )

@@ -14,7 +14,7 @@ class Pages extends Component {
 
         const onAddPage = () => {
             const pages = [...this.state.pages]
-            const page = <Page pages={this.state.pages} onAddPage={onAddPage} key={uuid()} />
+            const page = <Page pages={pages} onAddPage={onAddPage} key={uuid()} />
             pages.push(page)
             this.setState({ pages })
         }
@@ -23,6 +23,7 @@ class Pages extends Component {
             <div>
                 {this.state.pages}
                 <AddPage onAddPage={onAddPage} />
+                <div id="summernote-basic"></div>
             </div>
 
         )

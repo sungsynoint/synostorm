@@ -12,7 +12,7 @@ const navItem = (id, label, expanded, attribute) => {
 }
 
 const NavItems = () => {
-    return (<ul className="nav nav-tabs my-3">
+    return (<ul className="nav nav-tabs my-3 justify-content-center">
         {navItem("row", "Row", "false", "active")}
         {navItem("column", "Column", "true", " ")}
     </ul>);

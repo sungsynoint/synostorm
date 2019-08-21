@@ -57,10 +57,10 @@ class MatixCustom extends Component {
                         <div className="tab-pane active" id="row">
                             <div className="row">
                                 <div className="col-7 pr-0">
-                                    <RowInput row={this.state.rowInput} onDeleteRow={onDeleteRow} />
-                                    <AddRow onAddRow={onAddRow} />
+                                    <RowInput row={this.state.rowInput} onDeleteRow={onDeleteRow} label="Enter row label" deleteIcon="mdi-table-row-remove" />
+                                    <AddRow onAddRow={onAddRow} label="Add row" icon="mdi-table-row-plus-after" />
                                 </div>
-                                <TextArea onQuickAdd={onQuickAdd} />
+                                <TextArea onQuickAdd={onQuickAdd} label="Quick add rows" />
                             </div>
 
                         </div>
@@ -68,10 +68,10 @@ class MatixCustom extends Component {
 
                             <div className="row">
                                 <div className="col-7 pr-0">
-                                    <ColumnInput column={this.state.columnInput} onDeleteColumn={onDeleteColumn} />
+                                    <ColumnInput column={this.state.columnInput} onDeleteColumn={onDeleteColumn} label="Enter column label" />
                                     <AddColumn onAddColumn={onAddColumn} />
                                 </div>
-                                <TextArea onQuickAdd={onQuickAdd} />
+                                <TextArea onQuickAdd={onQuickAdd} label="Quick add columns" />
                             </div>
                         </div>
                     </div>

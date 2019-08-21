@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import QuestionType from './common/QuestionType';
 import MatrixCustom from "./components/MatrixCustom";
 import FreeText from "./components/FreeText";
+import SatisfactionMatrix from "./components/SatisfactionMatrix";
+import Dropdown from "./components/Dropdown";
+import Date from "./components/Date";
 
 
 class Question extends Component {
@@ -9,20 +12,14 @@ class Question extends Component {
         question: []
     }
 
-
-
     questions = [
         {
             label: "Matrix (Custom)",
             content: <MatrixCustom />
         },
         {
-            label: "Matrix (10)",
-            content: <p>aua</p>
-        },
-        {
             label: "Satisfaction matrix",
-            content: <MatrixCustom />
+            content: <SatisfactionMatrix />
         },
         {
             label: "Matrix multiple",
@@ -30,15 +27,11 @@ class Question extends Component {
         },
         {
             label: "Dropdown list",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Double dropdown list",
-            content: <MatrixCustom />
+            content: <Dropdown />
         },
         {
             label: "Date",
-            content: <MatrixCustom />
+            content: <Date />
         },
         {
             label: "Radio list",
@@ -57,10 +50,6 @@ class Question extends Component {
             content: <MatrixCustom />
         },
         {
-            label: "Long free text",
-            content: <MatrixCustom />
-        },
-        {
             label: "Free text",
             content: <FreeText />
         },
@@ -70,14 +59,6 @@ class Question extends Component {
         },
         {
             label: "Text display",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Screen out",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Quota full",
             content: <MatrixCustom />
         },
         {
