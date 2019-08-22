@@ -34,7 +34,7 @@ class QuestionComponents extends Component {
                     content: <SatisfactionMatrix />,
                 },
                 {
-                    label: "Single Choice Matrix",
+                    label: "Radio Question",
                     content: <SatisfactionMatrix />,
                 },
             ]

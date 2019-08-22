@@ -17,28 +17,23 @@ class Question extends QuestionComponents {
 
         const renderQuestion = (value) => {
 
-            const hakunaMatata = () => {
-                const questions = this.questions;
-                questions.forEach(question => {
-                    const ahua = question.question.find(question => question.label === value)
-                    aWayToLive(ahua)
+            const getQuestionComponent = () => {
+                this.questions.forEach(question => {
+                    const questionObj = question.question.find(question => question.label === value)
+                    try {
+                        const questions = questionObj
+                        if (questions) {
+                            const question = [questions.content]
+                            this.setState({ question })
+                        } else {
+                            throw new Error("You must select a question")
+                        }
+                    } catch (e) {
+                        this.setState({ error: e.message })
+                    }
                 })
             }
-
-            const aWayToLive = (question) => {
-                try {
-                    const questions = question
-                    if (questions) {
-                        const question = [questions.content]
-                        this.setState({ question })
-                    } else {
-                        throw new Error("You must select a question")
-                    }
-                } catch (e) {
-                    this.setState({ error: e.message })
-                }
-            }
-            hakunaMatata()
+            getQuestionComponent()
         }
 
         const getQuestion = () => this.state.question.find(question => question);

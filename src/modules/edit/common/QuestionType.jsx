@@ -1,5 +1,7 @@
 import React from 'react';
-
+import CKEditor from '@ckeditor/ckeditor5-react';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic/';
+import BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
 
 const QuestionType = ({ questions, setTitle, renderQuestion }) => {
 
@@ -14,12 +16,24 @@ const QuestionType = ({ questions, setTitle, renderQuestion }) => {
                                 <i className="mdi mdi-format-title"></i>
                             </span>
                         </div>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Question Title"
-                            style={{ border: "2px dashed rgb(238, 239, 245)" }}
-                            onInput={(e) => setTitle(e.target.value)}
+
+                        <CKEditor
+                            editor={BalloonEditor}
+                            data="<h5>Edit Title</h5>"
+                            onInit={editor => {
+                                // You can store the "editor" and use when it is needed.
+                                console.log('Editor is ready to use!', editor);
+                            }}
+                            onChange={(event, editor) => {
+                                const data = editor.getData();
+                                console.log({ event, editor, data });
+                            }}
+                            onBlur={editor => {
+                                console.log('Blur.', editor);
+                            }}
+                            onFocus={editor => {
+                                console.log('Focus.', editor);
+                            }}
                         />
                     </div>
 
