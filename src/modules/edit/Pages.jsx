@@ -23,7 +23,6 @@ class Pages extends Component {
             <div>
                 {this.state.pages}
                 <AddPage onAddPage={onAddPage} />
-                <div id="summernote-basic"></div>
             </div>
 
         )

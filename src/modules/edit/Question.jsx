@@ -1,72 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import QuestionType from './common/QuestionType';
-import MatrixCustom from "./components/MatrixCustom";
-import FreeText from "./components/FreeText";
-import SatisfactionMatrix from "./components/SatisfactionMatrix";
-import Dropdown from "./components/Dropdown";
-import Date from "./components/Date";
+import QuestionComponents from "./common/QuestionsComponent";
 
 
-class Question extends Component {
+class Question extends QuestionComponents {
     state = {
         question: []
     }
-
-    questions = [
-        {
-            label: "Matrix (Custom)",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Satisfaction matrix",
-            content: <SatisfactionMatrix />
-        },
-        {
-            label: "Matrix multiple",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Dropdown list",
-            content: <Dropdown />
-        },
-        {
-            label: "Date",
-            content: <Date />
-        },
-        {
-            label: "Radio list",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Multiple choices",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Multiple short text",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Multiple numerical input",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Free text",
-            content: <FreeText />
-        },
-        {
-            label: "Numerical input",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Text display",
-            content: <MatrixCustom />
-        },
-        {
-            label: "Ranking",
-            content: <MatrixCustom />
-        },
-    ]
-
 
 
     render() {
@@ -76,17 +16,29 @@ class Question extends Component {
         }
 
         const renderQuestion = (value) => {
-            try {
-                const questions = this.questions.find(question => question.label === value);
-                if (questions) {
-                    const question = [questions.content]
-                    this.setState({ question })
-                } else {
-                    throw new Error("You must select a question")
-                }
-            } catch (e) {
-                this.setState({ error: e.message })
+
+            const hakunaMatata = () => {
+                const questions = this.questions;
+                questions.forEach(question => {
+                    const ahua = question.question.find(question => question.label === value)
+                    aWayToLive(ahua)
+                })
             }
+
+            const aWayToLive = (question) => {
+                try {
+                    const questions = question
+                    if (questions) {
+                        const question = [questions.content]
+                        this.setState({ question })
+                    } else {
+                        throw new Error("You must select a question")
+                    }
+                } catch (e) {
+                    this.setState({ error: e.message })
+                }
+            }
+            hakunaMatata()
         }
 
         const getQuestion = () => this.state.question.find(question => question);

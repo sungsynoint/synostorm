@@ -29,8 +29,16 @@ const QuestionType = ({ questions, setTitle, renderQuestion }) => {
             <div className="col-5 pl-1">
                 <select onChange={e => renderQuestion(e.target.value)} className="form-control" style={{ border: "2px dashed #eeeff5" }} >
                     <option>Question Type:</option>
-                    {questions.map(option => <option value={option.label} key={option.label}>{option.label}</option>
-                    )}
+                    {questions.map(question => {
+                        return (
+                            <optgroup label={question.type} key={question.type}>
+                                {question.question.map(option => {
+
+                                    return <option value={option.label} key={option.label}>{option.label}</option>
+                                })}
+                            </optgroup>
+                        )
+                    })}
                 </select>
             </div>
         </div>
