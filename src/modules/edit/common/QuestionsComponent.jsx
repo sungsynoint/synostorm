@@ -8,7 +8,6 @@ import MatrixCustom from '../components/SatisfactionMatrix';
 class QuestionComponents extends Component {
 
     questions = [
-
         {
             type: "Text",
             question: [
@@ -34,6 +33,10 @@ class QuestionComponents extends Component {
                     label: "Satisfaction",
                     content: <SatisfactionMatrix />,
                 },
+                {
+                    label: "Single Choice Matrix",
+                    content: <SatisfactionMatrix />,
+                },
             ]
         },
         {
@@ -44,7 +47,7 @@ class QuestionComponents extends Component {
                     content: <MatrixCustom />,
                 },
                 {
-                    label: "Matrix",
+                    label: "Matrix Custom",
                     content: <MatrixCustom />,
                 },
             ]
