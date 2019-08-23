@@ -8,29 +8,22 @@ class Page extends Component {
 
     render() {
 
+        function pageCard(page, index, key) {
+            return (
+                <div key={key} className="card" style={{ border: "2px dashed #eeeff5" }}>
+                    <PageHeader page={page} i={index} onClonePage={onClonePage} />
+                    <Questions />
+                </div>
+            )
+        }
+
         const { pages, onClonePage, page } = this.props;
 
         return (
             <div>
                 <div className="mb-3">
-                    {pages.map((page, i) => {
-                        return (
-                            <div key={page.key} className="card" style={{ border: "2px dashed #eeeff5" }}>
-                                <PageHeader page={page} i={i} onClonePage={onClonePage} />
-                                <Questions />
-                            </div>
-                        )
-                    })}
-                </div>
-                <div className="mb-3">
-                    {page.map((pageClone, i) => {
-                        return (
-                            <div key={pageClone.key} className="card" style={{ border: "2px dashed #eeeff5" }}>
-                                <PageHeader page={pageClone} i={page} onClonePage={onClonePage} />
-                                <Questions />
-                            </div>
-                        )
-                    })}
+                    {pages.map((page, i) => pageCard(page, i, page.key))}
+                    {page.map((pageClone) => pageCard(pageClone, pageClone, pageClone.key))}
                 </div>
             </div>
         );
