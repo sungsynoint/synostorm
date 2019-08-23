@@ -11,13 +11,13 @@ class Page extends Component {
         function pageCard(page, index, key) {
             return (
                 <div key={key} className="card" style={{ border: "2px dashed #eeeff5" }}>
-                    <PageHeader page={page} i={index} onClonePage={onClonePage} />
+                    <PageHeader page={page} i={index} onClonePage={onClonePage} onDeletePage={onDeletePage} />
                     <Questions />
                 </div>
             )
         }
 
-        const { pages, onClonePage, page } = this.props;
+        const { pages, onClonePage, page, onDeletePage } = this.props;
 
         return (
             <div>

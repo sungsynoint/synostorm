@@ -32,10 +32,22 @@ class Pages extends Component {
             this.setState(page)
         }
 
+
+        const onDeletePage = (pagekey) => {
+            const pages = this.state.pages.filter(page => page.key !== pagekey)
+            this.setState({ pages })
+        }
+
         const { pages, page } = this.state
         return (
             <div>
-                <Page pages={pages} page={page} onAddPage={onAddPage} onClonePage={onClonePage} />
+                <Page
+                    pages={pages}
+                    page={page}
+                    onAddPage={onAddPage}
+                    onClonePage={onClonePage}
+                    onDeletePage={onDeletePage} />
+
                 <AddPage onAddPage={onAddPage} />
             </div>
 

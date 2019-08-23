@@ -3,7 +3,7 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic/';
 
 
-const PageHeader = ({ page, i, onClonePage }) => {
+const PageHeader = ({ page, i, onClonePage, onDeletePage }) => {
     return (
         <div className="card-body pb-0">
 
@@ -29,7 +29,7 @@ const PageHeader = ({ page, i, onClonePage }) => {
 
             <div className="button-list float-right">
                 <button className="btn btn-secondary btn-sm" onClick={() => onClonePage(page.key)}>Clone</button>
-                <button className="btn btn-secondary btn-sm">Delete</button>
+                <button className="btn btn-secondary btn-sm" onClick={() => onDeletePage(page.key)}>Delete</button>
             </div>
             <textarea className="h4 w-50 text-dark" style={{ resize: "none", border: "0px", height: "27px" }} defaultValue={`Page ${i + 1}`} />
         </div>
