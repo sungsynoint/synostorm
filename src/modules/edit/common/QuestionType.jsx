@@ -1,7 +1,4 @@
 import React from 'react';
-import CKEditor from '@ckeditor/ckeditor5-react';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic/';
-import BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
 
 const QuestionType = ({ questions, setTitle, renderQuestion }) => {
 
@@ -12,32 +9,18 @@ const QuestionType = ({ questions, setTitle, renderQuestion }) => {
                 <form >
                     <div className="input-group">
                         <div className="input-group-prepend">
-                            <span className="input-group-text" id="inputGroupPrepend">
+                            <span className="input-group-text">
                                 <i className="mdi mdi-format-title"></i>
                             </span>
                         </div>
-
-                        <CKEditor
-                            editor={BalloonEditor}
-                            data="<h5>Edit Title</h5>"
-                            onInit={editor => {
-                                // You can store the "editor" and use when it is needed.
-                                console.log('Editor is ready to use!', editor);
-                            }}
-                            onChange={(event, editor) => {
-                                const data = editor.getData();
-                                console.log({ event, editor, data });
-                            }}
-                            onBlur={editor => {
-                                console.log('Blur.', editor);
-                            }}
-                            onFocus={editor => {
-                                console.log('Focus.', editor);
-                            }}
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Question Title"
+                            style={{ border: "2px dashed rgb(238, 239, 245)" }}
+                            onInput={(e) => setTitle(e.target.value)}
                         />
                     </div>
-
-
                 </form>
             </div>
             <div className="col-5 pl-1">
@@ -47,7 +30,6 @@ const QuestionType = ({ questions, setTitle, renderQuestion }) => {
                         return (
                             <optgroup label={question.type} key={question.type}>
                                 {question.question.map(option => {
-
                                     return <option value={option.label} key={option.label}>{option.label}</option>
                                 })}
                             </optgroup>
