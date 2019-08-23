@@ -19,9 +19,11 @@ class Questions extends Component {
             this.setState({ questions })
         }
 
+        const { id } = this.props
+
         return (
             <React.Fragment>
-                <div className="card-body pt-2">
+                <div className="card-body pt-2" id={id}>
                     {this.state.questions}
                 </div>
                 <div className="mt-1">

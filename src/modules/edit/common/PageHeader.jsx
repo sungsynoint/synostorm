@@ -4,10 +4,16 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic/';
 
 
 const PageHeader = ({ page, i, onClonePage, onDeletePage }) => {
-    return (
-        <div className="card-body pb-0">
 
-            <CKEditor
+
+    function getCopy() {
+        return page.label ? page.label : ""
+    }
+
+    return (
+        <div className="card-body pb-0" >
+
+            {/* <CKEditor
                 editor={ClassicEditor}
                 data={`<p>Edit Title</p>`}
                 onInit={editor => {
@@ -25,13 +31,22 @@ const PageHeader = ({ page, i, onClonePage, onDeletePage }) => {
                     console.log('Focus.', editor);
                 }}
             />
+ */}
 
-
-            <div className="button-list float-right">
-                <button className="btn btn-secondary btn-sm" onClick={() => onClonePage(page.key)}>Clone</button>
-                <button className="btn btn-secondary btn-sm" onClick={() => onDeletePage(page.key)}>Delete</button>
+            <div className="float-left">
+                <h4 className="text-muted mb-0 mt-0">
+                    {`Page ${i + 1} ${getCopy()}`}
+                </h4>
+                <span className="text-muted" style={{ fontSize: "11px" }}>{page.key.toString().substring(0, 6)}</span>
             </div>
-            <textarea className="h4 w-50 text-dark" style={{ resize: "none", border: "0px", height: "27px" }} defaultValue={`Page ${i + 1}`} />
+
+
+            <div class="card-widgets">
+                <a data-toggle="collapse" href={`#${page.key}`} role="button" aria-expanded="false" aria-controls={page.key}><i class="mdi mdi-minus"></i></a>
+                <a role="button" onClick={() => onClonePage(page.key)}><i class="mdi mdi-content-copy mx-2"></i></a>
+                <a role="button" onClick={() => onDeletePage(page.key)}><i class="mdi mdi-close"></i></a>
+            </div>
+
         </div>
     )
 }

@@ -11,9 +11,6 @@ class Question extends QuestionComponents {
 
     render() {
 
-        const setTitle = (value) => {
-            console.log(value)
-        }
 
         const renderQuestion = (value) => {
 
@@ -40,7 +37,7 @@ class Question extends QuestionComponents {
 
         return (
             <div>
-                <QuestionType questions={this.questions} setTitle={setTitle} renderQuestion={renderQuestion} />
+                <QuestionType questions={this.questions} renderQuestion={renderQuestion} />
                 {getQuestion()}
             </div>
         )

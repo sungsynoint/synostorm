@@ -18,18 +18,25 @@ class Pages extends Component {
 
         const onAddPage = () => {
             const pages = [...this.state.pages]
-            const page = <Page pages={pages} onAddPage={onAddPage} key={uuid()} />
+            const page = <Page
+                pages={pages}
+                onAddPage={onAddPage}
+                onClonePage={onClonePage}
+                onDeletePage={onDeletePage}
+                key={uuid()} />
             pages.push(page)
             this.setState({ pages })
         }
 
 
         const onClonePage = (pagekey) => {
-            const pages = [...this.state.pages]
-            const getPage = pages.find(page => page.key === pagekey)
-            const page = this.state.page;
-            page.push(getPage)
-            this.setState(page)
+            const pages = this.state.pages;
+            const page = pages.find(page => page.key === pagekey)
+            const newPage = { ...page }
+            newPage.key = uuid()
+            newPage.label = "Copy"
+            pages.push(newPage)
+            this.setState(pages)
         }
 
 
@@ -38,12 +45,11 @@ class Pages extends Component {
             this.setState({ pages })
         }
 
-        const { pages, page } = this.state
+        const { pages } = this.state
         return (
             <div>
                 <Page
                     pages={pages}
-                    page={page}
                     onAddPage={onAddPage}
                     onClonePage={onClonePage}
                     onDeletePage={onDeletePage} />

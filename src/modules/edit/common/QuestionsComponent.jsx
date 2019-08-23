@@ -3,7 +3,8 @@ import FreeText from '../components/FreeText';
 import Date from '../components/Date';
 import Dropdown from '../components/Dropdown';
 import SatisfactionMatrix from '../components/SatisfactionMatrix';
-import MatrixCustom from '../components/SatisfactionMatrix';
+import MatrixCustom from '../components/MatrixCustom';
+import Radio from '../components/Radio';
 
 class QuestionComponents extends Component {
 
@@ -30,11 +31,11 @@ class QuestionComponents extends Component {
                     content: <Dropdown />,
                 },
                 {
-                    label: "Satisfaction",
-                    content: <SatisfactionMatrix />,
+                    label: "Radio",
+                    content: <Radio />,
                 },
                 {
-                    label: "Radio Question",
+                    label: "Satisfaction",
                     content: <SatisfactionMatrix />,
                 },
             ]
@@ -42,10 +43,6 @@ class QuestionComponents extends Component {
         {
             type: "Multiple Choice",
             question: [
-                {
-                    label: "Dropdown list",
-                    content: <MatrixCustom />,
-                },
                 {
                     label: "Matrix Custom",
                     content: <MatrixCustom />,
@@ -66,8 +63,8 @@ class QuestionComponents extends Component {
             type: "Multiple Choice Matrix",
             question: [
                 {
-                    label: "Dropdown list",
-                    content: <MatrixCustom />,
+                    label: "Dropdown",
+                    content: <Dropdown />,
                 },
                 {
                     label: "Matrix",
