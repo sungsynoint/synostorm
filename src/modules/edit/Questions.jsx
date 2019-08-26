@@ -21,15 +21,17 @@ class Questions extends Component {
 
         const { id } = this.props
 
+        console.log(typeof id)
+
         return (
-            <React.Fragment>
-                <div className="card-body pt-2" id={id}>
+            <div id={id} className="collapse show">
+                <div className="card-body pt-2" >
                     {this.state.questions}
                 </div>
                 <div className="mt-1">
                     <AddQuestion onAddQuestion={onAddQuestion} />
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }

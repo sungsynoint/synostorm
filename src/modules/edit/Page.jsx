@@ -6,9 +6,16 @@ import Questions from './Questions';
 
 class Page extends Component {
 
+
+
+
     render() {
 
         const { pages, onClonePage, onDeletePage } = this.props;
+
+        (function getPageKey() {
+            console.log(pages);
+        })()
 
         return (
             <div>
@@ -20,9 +27,8 @@ class Page extends Component {
                             i={i}
                             onClonePage={onClonePage}
                             onDeletePage={onDeletePage}
-
                         />
-                        <Questions id={page.key} />
+                        <Questions id={`page${page.key}`} />
                     </div>)}
                 </div>
             </div>
