@@ -20,12 +20,14 @@ class Page extends Component {
             <div>
                 <div className="mb-3">
                     <div ref={this.dragulaDecorator}>
+
                         {pages.map((page, i) =>
                             <div
                                 key={page.key}
                                 className="card"
                                 style={{ border: "2px dashed #eeeff5" }}
                             >
+                                <i className="mdi mdi-drag-horizontal text-center" style={{ cursor: "move" }}></i>
                                 <PageHeader
                                     page={page}
                                     i={i}

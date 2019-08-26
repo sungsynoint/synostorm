@@ -14,7 +14,7 @@ class PageHeader extends Component {
         const { page, i, onClonePage, onDeletePage } = this.props
 
         return (
-            <div className="card-body pb-0">
+            <div className="card-body pb-0 pt-0">
                 <div className="card-widgets">
                     <a data-toggle="collapse"
                         href={`#page${page.key}`}

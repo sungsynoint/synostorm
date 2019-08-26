@@ -9,7 +9,7 @@ const QuestionType = ({ questions, setTitle, renderQuestion }) => {
                     <div className="input-group">
                         <div className="input-group-prepend">
                             <span className="input-group-text" >
-                                <i className="mdi mdi-drag-horizontal"></i>
+                                <i className="mdi mdi-format-title"></i>
                             </span>
                         </div>
                         <input
