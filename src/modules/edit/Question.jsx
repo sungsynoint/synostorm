@@ -11,7 +11,6 @@ class Question extends QuestionComponents {
 
     render() {
 
-
         const renderQuestion = (value) => {
 
             const getQuestionComponent = () => {

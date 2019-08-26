@@ -25,7 +25,7 @@ class EditSurvey extends Component {
         }
 
         return (
-            <div className="container mt-5">
+            <div className="mt-5">
                 <div className="row">
                     <div className="col-12">
                         <NavBar />

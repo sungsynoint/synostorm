@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uuid from "uuid/v4"
-import TextArea from './common/TextArea';
+import TextArea from './common/QuickAdd';
 import RowInput from './common/RowInput';
 import AddRow from './common/AddRow';
 

@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import Question from './Question';
 import uuid from "uuid/v4"
+import Dragula from 'react-dragula';
+import Question from './Question';
 import AddQuestion from './components/common/AddQuestion';
+
 
 class Questions extends Component {
     state = {}
+
+    dragulaDecorator = (QuestionDrag) => {
+        if (QuestionDrag) {
+            let options = {};
+            Dragula([QuestionDrag], options);
+        }
+    };
 
     componentWillMount() {
         this.setState({ questions: [<Question key={uuid()} />] })
     }
 
-    render() {
 
+    render() {
         const onAddQuestion = () => {
             const questions = [...this.state.questions]
             const question = <Question key={uuid()} />
@@ -21,15 +30,16 @@ class Questions extends Component {
 
         const { id } = this.props
 
-        console.log(typeof id)
-
         return (
-            <div id={id} className="collapse show">
-                <div className="card-body pt-2" >
-                    {this.state.questions}
-                </div>
-                <div className="mt-1">
-                    <AddQuestion onAddQuestion={onAddQuestion} />
+
+            <div>
+                <div id={id} className="collapse show">
+                    <div className="card-body pt-2" ref={this.dragulaDecorator}>
+                        {this.state.questions}
+                    </div>
+                    <div className="mt-1">
+                        <AddQuestion onAddQuestion={onAddQuestion} />
+                    </div>
                 </div>
             </div>
         );

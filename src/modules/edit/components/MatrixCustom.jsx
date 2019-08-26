@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuid from "uuid/v4"
 import RowInput from './common/RowInput';
 import AddRow from './common/AddRow';
-import TextArea from './common/TextArea';
+import TextArea from './common/QuickAdd';
 import NavItems from './common/NavItems';
 import ColumnInput from './common/ColumnInput';
 import AddColumn from './common/AddColumn';

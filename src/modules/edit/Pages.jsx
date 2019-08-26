@@ -5,7 +5,6 @@ import AddPage from "./common/AddPage"
 
 
 class Pages extends Component {
-
     state = {
         page: []
     }
@@ -13,6 +12,7 @@ class Pages extends Component {
     componentWillMount() {
         this.setState({ pages: [<Page key={uuid()} />] })
     }
+
 
     render() {
 
@@ -46,13 +46,15 @@ class Pages extends Component {
         }
 
         const { pages } = this.state
+
         return (
             <div>
                 <Page
                     pages={pages}
                     onAddPage={onAddPage}
                     onClonePage={onClonePage}
-                    onDeletePage={onDeletePage} />
+                    onDeletePage={onDeletePage}
+                />
 
                 <AddPage onAddPage={onAddPage} />
             </div>

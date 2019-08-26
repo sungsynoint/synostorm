@@ -4,13 +4,12 @@ const QuestionType = ({ questions, setTitle, renderQuestion }) => {
 
     return (
         <div className="row my-3">
-
             <div className="col-7">
                 <form >
                     <div className="input-group">
                         <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <i className="mdi mdi-format-title"></i>
+                            <span className="input-group-text" >
+                                <i className="mdi mdi-drag-horizontal"></i>
                             </span>
                         </div>
                         <input
@@ -39,6 +38,8 @@ const QuestionType = ({ questions, setTitle, renderQuestion }) => {
             </div>
         </div>
     )
+
+
 }
 
 
