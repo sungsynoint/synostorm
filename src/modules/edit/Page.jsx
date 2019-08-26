@@ -7,7 +7,6 @@ import Questions from './Questions';
 class Page extends Component {
     state = {}
 
-
     dragulaDecorator = (PageDrag) => {
         if (PageDrag) {
             let options = {};
@@ -15,29 +14,27 @@ class Page extends Component {
         }
     };
 
-
     render() {
-
         const { pages, onClonePage, onDeletePage, } = this.props;
-
         return (
-
-            <div >
-                <div className="mb-3" ref={this.dragulaDecorator}>
-                    {pages.map((page, i) =>
-                        <div
-                            key={page.key}
-                            className="card"
-                            style={{ border: "2px dashed #eeeff5" }}
-                        >
-                            <PageHeader
-                                page={page}
-                                i={i}
-                                onClonePage={onClonePage}
-                                onDeletePage={onDeletePage}
-                            />
-                            <Questions id={`page${page.key}`} />
-                        </div>)}
+            <div>
+                <div className="mb-3">
+                    <div ref={this.dragulaDecorator}>
+                        {pages.map((page, i) =>
+                            <div
+                                key={page.key}
+                                className="card"
+                                style={{ border: "2px dashed #eeeff5" }}
+                            >
+                                <PageHeader
+                                    page={page}
+                                    i={i}
+                                    onClonePage={onClonePage}
+                                    onDeletePage={onDeletePage}
+                                />
+                                <Questions id={`page${page.key}`} />
+                            </div>)}
+                    </div>
                 </div>
             </div>
         );

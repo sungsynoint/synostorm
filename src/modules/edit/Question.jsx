@@ -8,7 +8,6 @@ class Question extends QuestionComponents {
         question: []
     }
 
-
     render() {
 
         const renderQuestion = (value) => {

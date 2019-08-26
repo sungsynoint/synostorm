@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import uuid from "uuid/v4"
-import Dragula from 'react-dragula';
 import Question from './Question';
 import AddQuestion from './components/common/AddQuestion';
 
@@ -8,17 +7,10 @@ import AddQuestion from './components/common/AddQuestion';
 class Questions extends Component {
     state = {}
 
-    dragulaDecorator = (QuestionDrag) => {
-        if (QuestionDrag) {
-            let options = {};
-            Dragula([QuestionDrag], options);
-        }
-    };
 
     componentWillMount() {
         this.setState({ questions: [<Question key={uuid()} />] })
     }
-
 
     render() {
         const onAddQuestion = () => {
@@ -34,7 +26,7 @@ class Questions extends Component {
 
             <div>
                 <div id={id} className="collapse show">
-                    <div className="card-body pt-2" ref={this.dragulaDecorator}>
+                    <div className="card-body pt-2">
                         {this.state.questions}
                     </div>
                     <div className="mt-1">
