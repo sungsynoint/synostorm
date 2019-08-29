@@ -5,17 +5,16 @@ import AddQuestion from './components/common/AddQuestion';
 
 
 class Questions extends Component {
-    state = {}
-
-
-    componentWillMount() {
-        this.setState({ questions: [<Question key={uuid()} />] })
+    state = {
+        questions: [<Question key={uuid()} id={uuid()} />]
     }
+
+
 
     render() {
         const onAddQuestion = () => {
             const questions = [...this.state.questions]
-            const question = <Question key={uuid()} />
+            const question = <Question key={uuid()} id={uuid()} questionState={this.state.questions} />
             questions.push(question)
             this.setState({ questions })
         }
@@ -26,11 +25,11 @@ class Questions extends Component {
 
             <div>
                 <div id={id} className="collapse show">
-                    <div className="card-body pt-2">
+                    <div className="card-body px-5 pt-0">
                         {this.state.questions}
                     </div>
                     <div className="mt-1">
-                        <AddQuestion onAddQuestion={onAddQuestion} />
+                        <AddQuestion onAddQuestion={onAddQuestion} questionState={this.state.questions} />
                     </div>
                 </div>
             </div>

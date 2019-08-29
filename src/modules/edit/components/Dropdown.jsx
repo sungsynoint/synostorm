@@ -29,19 +29,17 @@ class Dropdown extends Component {
 
         return (
             <div>
-                <h1>
-                    <div className="row pb-5">
-                        <div className="col-12">
-                            <div className="row">
-                                <div className="col-7 pr-0">
-                                    <RowInput row={this.state.rowInput} label="Option" onDeleteRow={onDeleteRow} deleteIcon="mdi-playlist-remove" />
-                                    <AddRow onAddRow={onAddRow} label="Add option" icon="mdi-playlist-plus" />
-                                </div>
-                                <TextArea onQuickAdd={onQuickAdd} label="Quick add options" />
+                <div className="row chart-content-bg p-2 my-4">
+                    <div className="col-12">
+                        <div className="row">
+                            <div className="col-7 pr-0">
+                                <RowInput row={this.state.rowInput} label="Option" onDeleteRow={onDeleteRow} deleteIcon="mdi-playlist-remove" />
+                                <AddRow onAddRow={onAddRow} label="Add option" icon="mdi-playlist-plus" />
                             </div>
+                            <TextArea onQuickAdd={onQuickAdd} label="Quick add options" />
                         </div>
                     </div>
-                </h1>
+                </div>
             </div>
         );
     }

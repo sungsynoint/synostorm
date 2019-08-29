@@ -18,12 +18,13 @@ class Pages extends Component {
 
         const onAddPage = () => {
             const pages = [...this.state.pages]
-            const page = <Page
-                pages={pages}
-                onAddPage={onAddPage}
-                onClonePage={onClonePage}
-                onDeletePage={onDeletePage}
-                key={uuid()} />
+            const page =
+                <Page
+                    pages={pages}
+                    onAddPage={onAddPage}
+                    onClonePage={onClonePage}
+                    onDeletePage={onDeletePage}
+                    key={uuid()} />
             pages.push(page)
             this.setState({ pages })
         }

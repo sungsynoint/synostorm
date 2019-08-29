@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "uuid/v4"
 import QuestionType from './common/QuestionType';
 import QuestionComponents from "./common/QuestionsComponent";
 
@@ -34,8 +35,14 @@ class Question extends QuestionComponents {
         const getQuestion = () => this.state.question.find(question => question);
 
         return (
-            <div>
-                <QuestionType questions={this.questions} renderQuestion={renderQuestion} />
+
+            <div className="col-12">
+                <QuestionType
+                    questions={this.questions}
+                    renderQuestion={renderQuestion}
+                    questionState={this.props.questionState}
+                    id={uuid()}
+                />
                 {getQuestion()}
             </div>
         )

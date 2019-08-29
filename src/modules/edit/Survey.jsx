@@ -3,6 +3,8 @@ import { getSurveys } from "../../localStorage"
 import SurveyStatus from "./common/SurveyStatus"
 import NavBar from "./common/TapBar"
 import Pages from './Pages';
+import LeftMenu from "../common/leftMenu"
+
 
 class EditSurvey extends Component {
 
@@ -25,18 +27,22 @@ class EditSurvey extends Component {
         }
 
         return (
-            <div className="mt-5">
-                <div className="row">
-                    <div className="col-12">
-                        <NavBar />
-                        <SurveyStatus survey={survey} badges={badges} />
+            <div>
+                <LeftMenu />
+                <div className="content-page">
+                    <div className="content container-fluid">
+                        <div className="row mt-3">
+                            <div className="col-11">
+                                <NavBar />
+                                <SurveyStatus survey={survey} badges={badges} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-11 mt-4">
+                                <Pages />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-12 mt-2">
-                        <Pages />
-                    </div>
-
                 </div>
             </div>
         );

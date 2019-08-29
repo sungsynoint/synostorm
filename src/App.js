@@ -7,7 +7,7 @@ import NotFound from "./modules/common/NotFound.jsx"
 class App extends Component {
   render() {
     return (
-      <main className="App container">
+      <main className="wrapper">
         <Switch>
           <Route path="/not-found" component={NotFound} />
           <Route path="/surveys" component={Surveys} />

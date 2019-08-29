@@ -1,28 +1,35 @@
 import React from 'react';
 
-const QuestionType = ({ questions, setTitle, renderQuestion }) => {
+const QuestionType = ({ questionState, id, questions, setTitle, renderQuestion }) => {
+
 
     return (
         <div className="row my-3">
+            <div className="col-0">
+                <div className="mx-2">
+                    <p className="text-dark mt-0 mb-0 font-13">
+                        Q{questionState === undefined ? "1" : questionState.length + 1}
+                    </p>
+                    <span className="card-subtitle text-muted" style={{ fontSize: "11px" }}>
+                        {id.toString().substring(0, 8)}
+                    </span>
+                </div>
+            </div>
+
             <div className="col-7">
                 <form >
                     <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" >
-                                <i className="mdi mdi-format-title"></i>
-                            </span>
-                        </div>
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="Question Title"
+                            placeholder="Question title"
                             style={{ border: "2px dashed rgb(238, 239, 245)" }}
                             onInput={(e) => setTitle(e.target.value)}
                         />
                     </div>
                 </form>
             </div>
-            <div className="col-5 pl-1">
+            <div className="col-4">
                 <select onChange={e => renderQuestion(e.target.value)} className="form-control" style={{ border: "2px dashed #eeeff5" }} >
                     <option>Question Type:</option>
                     {questions.map(question => {
