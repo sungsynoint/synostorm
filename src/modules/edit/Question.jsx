@@ -1,5 +1,4 @@
 import React from "react";
-import uuid from "uuid/v4"
 import QuestionType from './common/QuestionType';
 import QuestionComponents from "./common/QuestionsComponent";
 

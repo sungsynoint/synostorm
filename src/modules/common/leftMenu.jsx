@@ -9,51 +9,51 @@ const LeftMenu = () => {
             <div className="slimScrollDiv in" style={{ position: " relative", overflow: " hidden", width: " auto", height: " 621px" }}>
                 <div className="slimscroll-menu active" style={{ overflow: "hidden", width: " auto", height: "621px" }}>
 
-                    <a href="/en/" className="logo text-center active">
+                    <span href="/en/" className="logo text-center active">
                         <span className="logo-lg">
                             <img src="/images/logo.png" alt="" height="24" />
                         </span>
                         <span className="logo-sm">
                             <img src="/images/logo_sm.png" alt="" height="16" />
                         </span>
-                    </a>
+                    </span>
 
                     <ul className="metismenu side-nav in">
 
                         <li className="side-nav-item active">
-                            <a href="/en/" className="side-nav-link active">
+                            <span href="/en/" className="side-nav-link active">
                                 <i className="dripicons-home"></i>
                                 <span> Dashboard </span>
-                            </a>
+                            </span>
                         </li>
 
                         <li className="side-nav-item">
-                            <a href="/en/projects" className="side-nav-link ">
+                            <span href="/en/projects" className="side-nav-link ">
                                 <i className="dripicons-briefcase"></i>
                                 <span> Projects</span>
-                            </a>
+                            </span>
                         </li>
 
                         <li className="side-nav-item ">
-                            <a href="/en/audience-campaigns" className="side-nav-link">
+                            <span href="/en/audience-campaigns" className="side-nav-link">
                                 <i className="dripicons-web"></i>
                                 <span> Audience </span>
-                            </a>
+                            </span>
                         </li>
 
                         <li className="side-nav-item">
-                            <a href="/en/identity-campaigns" className="side-nav-link">
+                            <span href="/en/identity-campaigns" className="side-nav-link">
                                 <i className="dripicons-user-id"></i>
                                 <span> Identities </span>
-                            </a>
+                            </span>
                         </li>
 
                         <li className="side-nav-item ">
-                            <a href="javascript: void(0);" className="side-nav-link">
+                            <span href="" className="side-nav-link">
                                 <i className="dripicons-message"></i>
                                 <span> Answers </span>
                                 <span className="menu-arrow"></span>
-                            </a>
+                            </span>
 
                             <ul className="side-nav-second-level collapse" aria-expanded="false">
                                 <li>
@@ -83,26 +83,26 @@ const LeftMenu = () => {
                         </li>
 
                         <li className="side-nav-item">
-                            <a href="javascript: void(0);" className="side-nav-link">
+                            <span href="" className="side-nav-link">
                                 <i className="dripicons-gear mr-1"></i>
                                 <span> Settings </span>
                                 <span className="menu-arrow"></span>
-                            </a>
+                            </span>
 
                             <ul className="side-nav-second-level collapse" aria-expanded="false">
 
                                 <li>
-                                    <a href="/en/employees">
+                                    <span href="/en/employees">
                                         Employees
-                        </a>
+                                    </span>
                                 </li>
 
 
 
                                 <li>
-                                    <a href="/en/users">
+                                    <span href="/en/users">
                                         Users
-                        </a>
+                                    </span>
                                 </li>
 
 
@@ -124,4 +124,4 @@ const LeftMenu = () => {
     )
 }
 
-export default LeftMenu;
+export default LeftMenu;    

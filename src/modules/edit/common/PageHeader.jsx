@@ -24,12 +24,12 @@ class PageHeader extends Component {
                     >
                         <i className="mdi mdi-minus p-0 mx-2"></i>
                     </a>
-                    <a onClick={() => onClonePage(page.key)}>
+                    <span onClick={() => onClonePage(page.key)}>
                         <i className="mdi mdi-content-copy btn p-0 mx-1"></i>
-                    </a>
-                    <a onClick={() => onDeletePage(page.key)}>
+                    </span>
+                    <span onClick={() => onDeletePage(page.key)}>
                         <i className="mdi mdi-close btn p-0 mx-2"></i>
-                    </a>
+                    </span>
                 </div>
 
                 <div className="card-title">
