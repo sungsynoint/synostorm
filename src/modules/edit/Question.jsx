@@ -21,6 +21,7 @@ class Question extends QuestionComponents {
                         if (questions) {
                             const question = [questions.content]
                             this.setState({ question })
+                            console.log(question)
                         } else {
                             throw new Error("You must select a question")
                         }
@@ -32,7 +33,10 @@ class Question extends QuestionComponents {
             getQuestionComponent()
         }
 
-        const getQuestion = () => this.state.question.find(question => question);
+        const GetQuestion = () => {
+            const question = this.state.question.find(question => question)
+            return question ? question : ""
+        }
 
         return (
 
@@ -41,9 +45,10 @@ class Question extends QuestionComponents {
                     questions={this.questions}
                     renderQuestion={renderQuestion}
                     questionState={this.props.questionState}
-                    id={uuid()}
+                    id={this.props.id}
+
                 />
-                {getQuestion()}
+                <GetQuestion />
             </div>
         )
     }
