@@ -16,11 +16,10 @@ class Question extends QuestionComponents {
                 this.questions.forEach(question => {
                     const questionObj = question.question.find(question => question.label === value)
                     try {
-                        const questions = questionObj
-                        if (questions) {
-                            const question = [questions.content]
+                        if (questionObj) {
+                            const question = [...this.state.question]
+                            question.push(questionObj.content)
                             this.setState({ question })
-                            console.log(question)
                         } else {
                             throw new Error("You must select a question")
                         }

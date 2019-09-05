@@ -33,11 +33,8 @@ class Pages extends Component {
         const onClonePage = (pagekey) => {
             const pages = this.state.pages;
             const page = pages.find(page => page.key === pagekey)
-            const newPage = { ...page }
-            newPage.key = uuid()
-            newPage.label = "Copy"
-            pages.push(newPage)
-            this.setState(pages)
+            pages.push(page)
+            this.setState({ pages })
         }
 
 

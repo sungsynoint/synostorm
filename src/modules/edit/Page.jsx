@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Dragula from "react-dragula"
+import uuid from "uuid/v4"
 import PageHeader from './common/PageHeader';
-import Questions from './Questions';
-
+import Question from './Question';
+import AddQuestion from './components/common/AddQuestion';
 
 class Page extends Component {
-    state = {}
+    state = {
+        questions: [<Question key={uuid()} id={uuid()} />]
+    }
 
     dragulaDecorator = (PageDrag) => {
         if (PageDrag) {
@@ -14,8 +17,19 @@ class Page extends Component {
         }
     };
 
+
     render() {
+        const onAddQuestion = () => {
+            const questions = [...this.state.questions]
+            const question = <Question key={uuid()} id={uuid()} questionState={this.state.questions} />
+            questions.push(question)
+            this.setState({ questions })
+        }
+
         const { pages, onClonePage, onDeletePage, } = this.props;
+
+        console.log(this.state.questions)
+
         return (
             <div>
                 <div className="mb-3">
@@ -34,7 +48,15 @@ class Page extends Component {
                                     onClonePage={onClonePage}
                                     onDeletePage={onDeletePage}
                                 />
-                                <Questions id={`page${page.key}`} />
+                                <div id={this.props.id} className="collapse show">
+                                    <div className="card-body px-5 pt-0">
+                                        {this.state.questions}
+                                    </div>
+                                    <div className="mt-1">
+
+                                    </div>
+                                </div>
+                                <AddQuestion onAddQuestion={onAddQuestion} />
                             </div>)}
                     </div>
                 </div>
