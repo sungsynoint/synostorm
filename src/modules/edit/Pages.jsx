@@ -6,7 +6,7 @@ import AddPage from "./common/AddPage"
 
 class Pages extends Component {
     state = {
-        page: []
+        pageClone: []
     }
 
     componentWillMount() {
@@ -14,47 +14,52 @@ class Pages extends Component {
     }
 
 
+    onAddPage = () => {
+        const pages = this.state.pages;
+        const page =
+            <Page
+                pages={pages}
+                onAddPage={this.onAddPage}
+                onClonePage={this.onClonePage}
+                onDeletePage={this.onDeletePage}
+                pageClone={this.state.pageClone}
+                key={uuid()} />
+        pages.push(page)
+        this.setState({ pages })
+    }
+
+    onClonePage = (pagekey, array) => {
+        const pages = this.state.pages;
+        const page = pages.find(page => page.key === pagekey)
+        pages.push(page)
+        this.setState({ pages })
+
+        const pageClone = this.state.pageClone
+        pageClone.push(array)
+        this.setState({ pageClone })
+
+    }
+
+
+    onDeletePage = (pagekey) => {
+        const pages = this.state.pages.filter(page => page.key !== pagekey)
+        this.setState({ pages })
+    }
+
+
     render() {
-
-        const onAddPage = () => {
-            const pages = [...this.state.pages]
-            const page =
-                <Page
-                    pages={pages}
-                    onAddPage={onAddPage}
-                    onClonePage={onClonePage}
-                    onDeletePage={onDeletePage}
-                    key={uuid()} />
-            pages.push(page)
-            this.setState({ pages })
-        }
-
-
-        const onClonePage = (pagekey) => {
-            const pages = this.state.pages;
-            const page = pages.find(page => page.key === pagekey)
-            pages.push(page)
-            this.setState({ pages })
-        }
-
-
-        const onDeletePage = (pagekey) => {
-            const pages = this.state.pages.filter(page => page.key !== pagekey)
-            this.setState({ pages })
-        }
-
-        const { pages } = this.state
 
         return (
             <div>
                 <Page
-                    pages={pages}
-                    onAddPage={onAddPage}
-                    onClonePage={onClonePage}
-                    onDeletePage={onDeletePage}
+                    pages={this.state.pages}
+                    onAddPage={this.onAddPage}
+                    onClonePage={this.onClonePage}
+                    onDeletePage={this.onDeletePage}
+                    pageClone={this.state.pageClone}
                 />
 
-                <AddPage onAddPage={onAddPage} />
+                <AddPage onAddPage={this.onAddPage} />
             </div>
 
         )

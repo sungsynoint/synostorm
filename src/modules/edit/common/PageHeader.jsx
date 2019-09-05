@@ -21,7 +21,7 @@ class PageHeader extends Component {
                     >
                         <i className="mdi mdi-minus p-0 mx-2"></i>
                     </a>
-                    <span onClick={() => onClonePage(page.key)}>
+                    <span onClick={onClonePage}>
                         <i className="mdi mdi-content-copy btn p-0 mx-1"></i>
                     </span>
                     <span onClick={() => onDeletePage(page.key)}>
