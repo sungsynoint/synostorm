@@ -33,8 +33,14 @@ class Questions extends Component {
                 onDeletePage={this.props.onDeletePage}
             />
 
-            {this.state.questions}
-            {this.state.pageClone}
+            <div className="card-body">
+                {this.state.questions}
+            </div>
+
+            {this.state.pageClone.map(clone =>
+                clone
+            )}
+
             <AddQuestion onAddQuestion={this.onAddQuestion} />
         </div>);
     }

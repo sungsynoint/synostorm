@@ -14,6 +14,7 @@ class Pages extends Component {
     }
 
 
+
     onAddPage = () => {
         const pages = this.state.pages;
         const page =
@@ -25,19 +26,21 @@ class Pages extends Component {
                 pageClone={this.state.pageClone}
                 key={uuid()} />
         pages.push(page)
-        this.setState({ pages })
+        this.setState({ pages, pageClone: [] })
     }
 
     onClonePage = (pagekey, array) => {
         const pages = this.state.pages;
-        const page = pages.find(page => page.key === pagekey)
-        pages.push(page)
-        this.setState({ pages })
-
-        const pageClone = this.state.pageClone
-        pageClone.push(array)
-        this.setState({ pageClone })
-
+        let page = pages.find(page => page.key === pagekey)
+        const pageRef = { ...page }
+        if (page) {
+            pageRef.label = "Copy"
+            pageRef.key = page.key + 1
+            pages.push(pageRef)
+            let pageClone = [...this.state.pageClone]
+            pageClone = array
+            this.setState({ pages, pageClone })
+        }
     }
 
 

@@ -37,6 +37,8 @@ class Page extends Component {
 
                                 <i className="mdi mdi-drag-horizontal text-center" style={{ cursor: "move" }}></i>
                                 {this.state.questions.map(question =>
+
+
                                     <Questions
                                         page={page}
                                         i={i}
