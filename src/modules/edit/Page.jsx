@@ -34,11 +34,8 @@ class Page extends Component {
                                 className="card"
                                 style={{ border: "2px dashed #eeeff5" }}
                             >
-
                                 <i className="mdi mdi-drag-horizontal text-center" style={{ cursor: "move" }}></i>
                                 {this.state.questions.map(question =>
-
-
                                     <Questions
                                         page={page}
                                         i={i}
@@ -48,10 +45,7 @@ class Page extends Component {
                                         pageClone={pageClone}
                                         onDeletePage={onDeletePage} />
                                 )}
-
-
                             </div>)}
-
                     </div>
                 </div>
             </div>

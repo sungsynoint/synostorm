@@ -21,10 +21,12 @@ class Questions extends Component {
 
 
     render() {
-        console.log(this.state.pageClone)
+
+        const questions = this.state.questions
+        const clonedQuestions = this.state.pageClone.map(clone => clone)
+
 
         return (<div>
-
 
             <PageHeader
                 page={this.props.page}
@@ -32,15 +34,9 @@ class Questions extends Component {
                 onClonePage={() => this.props.onClonePage(this.props.page.key, this.state.questions)}
                 onDeletePage={this.props.onDeletePage}
             />
-
             <div className="card-body">
-                {this.state.questions}
+                {clonedQuestions.length >= 1 ? <div>  {clonedQuestions} </div> : <div> {questions} </div>}
             </div>
-
-            {this.state.pageClone.map(clone =>
-                clone
-            )}
-
             <AddQuestion onAddQuestion={this.onAddQuestion} />
         </div>);
     }
