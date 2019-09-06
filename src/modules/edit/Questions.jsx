@@ -7,16 +7,26 @@ import Question from './Question';
 class Questions extends Component {
     state = {
         questions: [
-            <Question key={uuid()} id={uuid()} />
+            <Question key={uuid()} id={uuid()} onDeleteQuestion={this.onDeleteQuestion} />
         ],
         pageClone: this.props.pageClone
     }
 
+
     onAddQuestion = () => {
         const questions = [...this.state.questions]
-        const question = <Question key={uuid()} id={uuid()} questionState={this.state.questions} />
+        const question = <Question
+            key={uuid()}
+            id={uuid()}
+            questionState={this.state.questions}
+            onDeleteQuestion={this.onDeleteQuestion}
+        />
         questions.push(question)
         this.setState({ questions })
+    }
+
+    onDeleteQuestion = (value) => {
+        console.log(value)
     }
 
 

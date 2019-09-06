@@ -45,7 +45,7 @@ class Question extends QuestionComponents {
                     renderQuestion={renderQuestion}
                     questionState={this.props.questionState}
                     id={this.props.id}
-
+                    onDeleteQuestion={this.props.onDeleteQuestion}
                 />
                 <GetQuestion />
             </div>
