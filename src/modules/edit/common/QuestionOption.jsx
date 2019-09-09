@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestionType = ({ question, questions, setTitle, getOption, onDeleteQuestion, index }) => {
+const QuestionOption = ({ question, questions, setTitle, getOption, onDeleteQuestion, index, onCloneQuestion }) => {
 
     return (
         <div className="row my-3">
@@ -44,7 +44,7 @@ const QuestionType = ({ question, questions, setTitle, getOption, onDeleteQuesti
             </div>
             <div className="col-1 table m-0" >
                 <div className="table-action py-0 border-0 p-0" >
-                    <span className="action-icon btn font-15" > <i className="mdi mdi-file-multiple"></i></span>
+                    <span className="action-icon btn font-15" onClick={() => onCloneQuestion(question)}> <i className="mdi mdi-file-multiple"></i></span>
                     <span className="action-icon btn" onClick={() => onDeleteQuestion(question)}> <i className="mdi mdi-delete"></i></span>
                 </div>
 
@@ -55,5 +55,4 @@ const QuestionType = ({ question, questions, setTitle, getOption, onDeleteQuesti
 
 }
 
-
-export default QuestionType;
+export default QuestionOption;

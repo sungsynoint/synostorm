@@ -6,11 +6,15 @@ import Pages from './Pages';
 import LeftMenu from "../common/leftMenu"
 
 
-class EditSurvey extends Component {
+class Survey extends Component {
 
     render() {
         const hash = window.location.hash.toString().substring(1)
         const survey = getSurveys().find(survey => survey.id === hash);
+
+        if (survey === undefined) {
+            window.location = "/not-found"
+        }
 
         const badges = () => {
             const styles = "small float-left "
@@ -49,4 +53,4 @@ class EditSurvey extends Component {
     }
 }
 
-export default EditSurvey;
+export default Survey;

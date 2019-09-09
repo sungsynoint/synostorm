@@ -14,7 +14,6 @@ class Pages extends Component {
     }
 
 
-
     onAddPage = () => {
         const pages = this.state.pages;
         const page =

@@ -1,6 +1,7 @@
 import React from "react";
-import QuestionType from './common/QuestionType';
+import QuestionOption from './common/QuestionOption';
 import QuestionComponents from "./common/QuestionsComponent";
+import { storeQuestion } from "../../localStorage"
 
 
 class Question extends QuestionComponents {
@@ -43,13 +44,14 @@ class Question extends QuestionComponents {
         return (
             <div>
                 <div className="col-12">
-                    <QuestionType
+                    <QuestionOption
                         questions={this.questions}
                         getOption={this.getOption}
                         questionState={this.props.questionState}
                         index={this.props.index}
                         onDeleteQuestion={this.props.onDeleteQuestion}
                         question={this.props.question}
+                        onCloneQuestion={this.props.onCloneQuestion}
                     />
                     <GetQuestion />
                 </div>

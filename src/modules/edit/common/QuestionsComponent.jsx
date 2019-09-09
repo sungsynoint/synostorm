@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from "uuid/v4"
 import FreeText from '../components/FreeText';
 import Date from '../components/Date';
 import Dropdown from '../components/Dropdown';
@@ -14,11 +15,11 @@ class QuestionComponents extends Component {
             question: [
                 {
                     label: "Free input",
-                    content: <FreeText />,
+                    content: <FreeText id={uuid()} />,
                 },
                 {
                     label: "Date",
-                    content: <Date />,
+                    content: <Date id={uuid()} />,
                 },
             ]
         },
@@ -28,15 +29,15 @@ class QuestionComponents extends Component {
             question: [
                 {
                     label: "Dropdown",
-                    content: <Dropdown />,
+                    content: <Dropdown id={uuid()} />,
                 },
                 {
                     label: "Radio",
-                    content: <Radio />,
+                    content: <Radio id={uuid()} />,
                 },
                 {
                     label: "Satisfaction",
-                    content: <SatisfactionMatrix />,
+                    content: <SatisfactionMatrix id={uuid()} />,
                 },
             ]
         },
@@ -45,7 +46,7 @@ class QuestionComponents extends Component {
             question: [
                 {
                     label: "Matrix Custom",
-                    content: <MatrixCustom />,
+                    content: <MatrixCustom id={uuid()} />,
                 },
             ]
         },
@@ -54,7 +55,7 @@ class QuestionComponents extends Component {
             question: [
                 {
                     label: "Matrix",
-                    content: <MatrixCustom />,
+                    content: <MatrixCustom id={uuid()} />,
                 },
 
             ]
@@ -64,11 +65,11 @@ class QuestionComponents extends Component {
             question: [
                 {
                     label: "Dropdown",
-                    content: <Dropdown />,
+                    content: <Dropdown id={uuid()} />,
                 },
                 {
                     label: "Matrix",
-                    content: <MatrixCustom />,
+                    content: <MatrixCustom id={uuid()} />,
                 },
             ]
         },

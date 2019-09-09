@@ -9,8 +9,11 @@ class Questions extends Component {
         questions: [
             <Question key={uuid()} id={uuid()} onDeleteQuestion={this.onDeleteQuestion} />
         ],
-        pageClone: this.props.pageClone
+        pageClone: this.props.pageClone,
+        questionClone: []
     }
+
+
 
 
     onAddQuestion = () => {
@@ -31,13 +34,30 @@ class Questions extends Component {
         this.setState({ questions })
     }
 
+    onCloneQuestion = (value) => {
+        const questions = this.state.questions;
+        let question = questions.find(question => question.key === value.key)
+        const questionRef = { ...question }
+        if (question) {
+            questionRef.label = "Copy"
+            questionRef.key = question.key + 1
+            questions.push(questionRef)
+            let questionClone = [...this.state.questionClone]
+            questionClone = ["array"]
+            this.setState({ questions, questionClone })
+        }
+    }
+
+
     render() {
+
         const renderQuestion = this.state.questions.map((question, i) =>
             <Question
                 key={uuid()}
                 index={i}
                 questionState={this.state.questions}
                 onDeleteQuestion={this.onDeleteQuestion}
+                onCloneQuestion={this.onCloneQuestion}
                 question={question}
             />
         )
@@ -48,6 +68,7 @@ class Questions extends Component {
                 index={i}
                 questionState={this.state.questions}
                 onDeleteQuestion={this.onDeleteQuestion}
+                onCloneQuestion={this.onCloneQuestion}
                 question={qclone}
             />
         )

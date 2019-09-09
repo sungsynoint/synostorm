@@ -5,7 +5,17 @@ const getSurveys = () => {
     return getSurvey !== null ? JSON.parse(getSurvey) : [];
 }
 
+const storeQuestion = (question) => localStorage.setItem("questions", JSON.stringify(question))
+
+const getQuestions = () => {
+    const getQuestion = JSON.parse(localStorage.getItem("questions"))
+    return getQuestion !== null ? getQuestion : []
+}
+
+
 export {
     getSurveys,
-    storeSurvey
+    storeSurvey,
+    storeQuestion,
+    getQuestions
 }
