@@ -23,29 +23,44 @@ class Questions extends Component {
         />
         questions.push(question)
         this.setState({ questions })
+
     }
 
     onDeleteQuestion = (value) => {
-        console.log(value)
+        const questions = this.state.questions.filter(question => question.key !== value.key)
+        this.setState({ questions })
     }
 
-
     render() {
+        const renderQuestion = this.state.questions.map((question, i) =>
+            <Question
+                key={uuid()}
+                index={i}
+                questionState={this.state.questions}
+                onDeleteQuestion={this.onDeleteQuestion}
+                question={question}
+            />
+        )
 
-        const questions = this.state.questions
-        const clonedQuestions = this.state.pageClone.map(clone => clone)
-
+        const renderCloneQuestion = this.state.pageClone.map((qclone, i) =>
+            <Question
+                key={uuid()}
+                index={i}
+                questionState={this.state.questions}
+                onDeleteQuestion={this.onDeleteQuestion}
+                question={qclone}
+            />
+        )
 
         return (<div>
-
             <PageHeader
                 page={this.props.page}
                 i={this.props.i}
                 onClonePage={() => this.props.onClonePage(this.props.page.key, this.state.questions)}
                 onDeletePage={this.props.onDeletePage}
             />
-            <div className="card-body">
-                {clonedQuestions.length >= 1 ? <div>  {clonedQuestions} </div> : <div> {questions} </div>}
+            <div className="card-body collapse show" id={`page${this.props.page.key}`}>
+                {renderCloneQuestion.length > 1 ? renderCloneQuestion : renderQuestion}
             </div>
             <AddQuestion onAddQuestion={this.onAddQuestion} />
         </div>);

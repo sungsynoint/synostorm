@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Dragula from "react-dragula"
 import uuid from "uuid/v4"
-// import PageHeader from './common/PageHeader';
-// import Question from './Question';
 import Questions from './Questions';
-// import AddQuestion from './components/common/AddQuestion';
 
 class Page extends Component {
     state = {
@@ -17,8 +14,6 @@ class Page extends Component {
             Dragula([PageDrag], options);
         }
     };
-
-
 
     render() {
 

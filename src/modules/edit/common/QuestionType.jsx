@@ -1,17 +1,16 @@
 import React from 'react';
 
-const QuestionType = ({ questionState, id, questions, setTitle, renderQuestion, onDeleteQuestion }) => {
-
+const QuestionType = ({ question, questions, setTitle, getOption, onDeleteQuestion, index }) => {
 
     return (
         <div className="row my-3">
             <div className="col-1">
                 <div className="mx-2">
                     <p className="text-dark mt-0 mb-0 font-13">
-                        Q{questionState === undefined ? "1" : questionState.length + 1}
+                        Q{index + 1}
                     </p>
                     <span className="card-subtitle text-muted" style={{ fontSize: "11px" }}>
-                        {id.toString().substring(0, 8)}
+                        {question.key.toString().substring(0, 8)}
                     </span>
                 </div>
             </div>
@@ -30,7 +29,7 @@ const QuestionType = ({ questionState, id, questions, setTitle, renderQuestion, 
                 </form>
             </div>
             <div className="col-4">
-                <select onChange={e => renderQuestion(e.target.value)} className="form-control" style={{ border: "2px dashed #eeeff5" }} >
+                <select onChange={e => getOption(e.target.value)} className="form-control" style={{ border: "2px dashed #eeeff5" }} >
                     <option>Question Type:</option>
                     {questions.map(question => {
                         return (
@@ -44,14 +43,11 @@ const QuestionType = ({ questionState, id, questions, setTitle, renderQuestion, 
                 </select>
             </div>
             <div className="col-1 table m-0" >
-                {questionState ? questionState.map(question => {
-                    return (
-                        <div className="table-action py-0 border-0 p-0">
-                            <span className="action-icon btn font-15" > <i className="mdi mdi-file-multiple"></i></span>
-                            <span className="action-icon btn" onClick={() => onDeleteQuestion("shut")}> <i className="mdi mdi-delete"></i></span>
-                        </div>
-                    )
-                }) : (null)}
+                <div className="table-action py-0 border-0 p-0" >
+                    <span className="action-icon btn font-15" > <i className="mdi mdi-file-multiple"></i></span>
+                    <span className="action-icon btn" onClick={() => onDeleteQuestion(question)}> <i className="mdi mdi-delete"></i></span>
+                </div>
+
             </div>
         </div>
     )

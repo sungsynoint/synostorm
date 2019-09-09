@@ -8,28 +8,31 @@ class Question extends QuestionComponents {
         question: []
     }
 
+
+    getOption = (value) => {
+
+        const getQuestionComponent = () => {
+            this.questions.forEach(question => {
+                const questionObj = question.question.find(question => question.label === value)
+                try {
+                    const questions = questionObj
+                    if (questions) {
+                        const question = [questions.content]
+                        this.setState({ question })
+                    } else {
+                        throw new Error("You must select a question")
+                    }
+                } catch (e) {
+                    this.setState({ error: e.message })
+                }
+            })
+        }
+        getQuestionComponent()
+    }
+
     render() {
 
-        const renderQuestion = (value) => {
-
-            const getQuestionComponent = () => {
-                this.questions.forEach(question => {
-                    const questionObj = question.question.find(question => question.label === value)
-                    try {
-                        const questions = questionObj
-                        if (questions) {
-                            const question = [questions.content]
-                            this.setState({ question })
-                        } else {
-                            throw new Error("You must select a question")
-                        }
-                    } catch (e) {
-                        this.setState({ error: e.message })
-                    }
-                })
-            }
-            getQuestionComponent()
-        }
+        console.log(this.state.question)
 
         const GetQuestion = () => {
             const question = this.state.question.find(question => question)
@@ -38,17 +41,21 @@ class Question extends QuestionComponents {
 
 
         return (
+            <div>
+                <div className="col-12">
+                    <QuestionType
+                        questions={this.questions}
+                        getOption={this.getOption}
+                        questionState={this.props.questionState}
+                        index={this.props.index}
+                        onDeleteQuestion={this.props.onDeleteQuestion}
+                        question={this.props.question}
+                    />
+                    <GetQuestion />
+                </div>
 
-            <div className="col-12">
-                <QuestionType
-                    questions={this.questions}
-                    renderQuestion={renderQuestion}
-                    questionState={this.props.questionState}
-                    id={this.props.id}
-                    onDeleteQuestion={this.props.onDeleteQuestion}
-                />
-                <GetQuestion />
             </div>
+
         )
     }
 }

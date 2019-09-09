@@ -26,7 +26,7 @@ class Pages extends Component {
                 pageClone={this.state.pageClone}
                 key={uuid()} />
         pages.push(page)
-        this.setState({ pages, pageClone: [] })
+        this.setState({ pages })
     }
 
     onClonePage = (pagekey, array) => {
