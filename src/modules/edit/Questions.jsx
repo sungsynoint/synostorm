@@ -7,7 +7,9 @@ import Question from './Question';
 class Questions extends Component {
     state = {
         questions: [
-            <Question key={uuid()} id={uuid()} onDeleteQuestion={this.onDeleteQuestion} />
+            <Question
+                key={uuid()}
+            />
         ],
         pageClone: this.props.pageClone,
         questionClone: []
@@ -51,25 +53,51 @@ class Questions extends Component {
     render() {
 
         const renderQuestion = this.state.questions.map((question, i) =>
-            <Question
-                key={uuid()}
-                index={i}
-                questionState={this.state.questions}
-                onDeleteQuestion={this.onDeleteQuestion}
-                onCloneQuestion={this.onCloneQuestion}
-                question={question}
-            />
+            <div className="row" key={question.key}>
+                <div className="col-1">
+                    <div className="mx-2">
+                        <p className="text-dark mt-0 mb-0 font-13">
+                            Q{i + 1}
+                        </p>
+                        <span className="card-subtitle text-muted" style={{ fontSize: "11px" }}>
+                            {question.key.toString().substring(0, 8)}
+                        </span>
+                    </div>
+                </div>
+                <div className="col-10">
+                    {question}
+                </div>
+                <div className="col-1 table m-0">
+                    <div className="table-action py-0 border-0 p-0" >
+                        <span className="action-icon btn font-15" onClick={() => this.onCloneQuestion(question)}> <i className="mdi mdi-file-multiple"></i></span>
+                        <span className="action-icon btn" onClick={() => this.onDeleteQuestion(question)}> <i className="mdi mdi-delete"></i></span>
+                    </div>
+                </div>
+            </div>
         )
 
         const renderCloneQuestion = this.state.pageClone.map((qclone, i) =>
-            <Question
-                key={uuid()}
-                index={i}
-                questionState={this.state.questions}
-                onDeleteQuestion={this.onDeleteQuestion}
-                onCloneQuestion={this.onCloneQuestion}
-                question={qclone}
-            />
+            <div className="row" key={qclone.key}>
+                <div className="col-1">
+                    <div className="mx-2">
+                        <p className="text-dark mt-0 mb-0 font-13">
+                            Q{i + 1}
+                        </p>
+                        <span className="card-subtitle text-muted" style={{ fontSize: "11px" }}>
+                            {qclone.key.toString().substring(0, 8)}
+                        </span>
+                    </div>
+                </div>
+                <div className="col-10">
+                    {qclone}
+                </div>
+                <div className="col-1 table m-0">
+                    <div className="table-action py-0 border-0 p-0" >
+                        <span className="action-icon btn font-15" onClick={() => this.onCloneQuestion(qclone)}> <i className="mdi mdi-file-multiple"></i></span>
+                        <span className="action-icon btn" onClick={() => this.onDeleteQuestion(qclone)}> <i className="mdi mdi-delete"></i></span>
+                    </div>
+                </div>
+            </div>
         )
 
         return (<div>
@@ -81,6 +109,7 @@ class Questions extends Component {
             />
             <div className="card-body collapse show" id={`page${this.props.page.key}`}>
                 {renderCloneQuestion.length > 1 ? renderCloneQuestion : renderQuestion}
+
             </div>
             <AddQuestion onAddQuestion={this.onAddQuestion} />
         </div>);

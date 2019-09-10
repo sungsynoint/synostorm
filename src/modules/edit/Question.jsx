@@ -33,8 +33,6 @@ class Question extends QuestionComponents {
 
     render() {
 
-        console.log(this.state.question)
-
         const GetQuestion = () => {
             const question = this.state.question.find(question => question)
             return question ? question : ""
@@ -47,11 +45,6 @@ class Question extends QuestionComponents {
                     <QuestionOption
                         questions={this.questions}
                         getOption={this.getOption}
-                        questionState={this.props.questionState}
-                        index={this.props.index}
-                        onDeleteQuestion={this.props.onDeleteQuestion}
-                        question={this.props.question}
-                        onCloneQuestion={this.props.onCloneQuestion}
                     />
                     <GetQuestion />
                 </div>
