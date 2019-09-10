@@ -2,7 +2,7 @@ import React from 'react';
 
 const QuestionOption = ({ questions, getOption }) => {
     return (
-        <div className="row my-3">
+        <div className="row">
             <div className="col-6">
                 <form >
                     <div className="input-group">

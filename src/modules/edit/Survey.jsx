@@ -36,15 +36,13 @@ class Survey extends Component {
                 <div className="content-page">
                     <div className="content container-fluid">
                         <div className="row mt-3">
-                            <div className="col-11">
+                            <div className="col-12">
                                 <NavBar />
                                 <SurveyStatus survey={survey} badges={badges} />
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-11 mt-4">
-                                <Pages />
-                            </div>
+                        <div className=" mt-4">
+                            <Pages />
                         </div>
                     </div>
                 </div>

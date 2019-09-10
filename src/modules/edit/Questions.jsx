@@ -53,8 +53,8 @@ class Questions extends Component {
     render() {
 
         const renderQuestion = this.state.questions.map((question, i) =>
-            <div className="row" key={question.key}>
-                <div className="col-1">
+            <div className="row card-body" key={question.key}>
+                <div className="col-1 px-1">
                     <div className="mx-2">
                         <p className="text-dark mt-0 mb-0 font-13">
                             Q{i + 1}
@@ -67,7 +67,7 @@ class Questions extends Component {
                 <div className="col-10">
                     {question}
                 </div>
-                <div className="col-1 table m-0">
+                <div className="col-1 table m-0 px-1">
                     <div className="table-action py-0 border-0 p-0" >
                         <span className="action-icon btn font-15" onClick={() => this.onCloneQuestion(question)}> <i className="mdi mdi-file-multiple"></i></span>
                         <span className="action-icon btn" onClick={() => this.onDeleteQuestion(question)}> <i className="mdi mdi-delete"></i></span>
@@ -109,7 +109,6 @@ class Questions extends Component {
             />
             <div className="card-body collapse show" id={`page${this.props.page.key}`}>
                 {renderCloneQuestion.length > 1 ? renderCloneQuestion : renderQuestion}
-
             </div>
             <AddQuestion onAddQuestion={this.onAddQuestion} />
         </div>);

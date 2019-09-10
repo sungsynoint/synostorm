@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 
 class RowInput extends Component {
-    state = {
-        quickAdd: [],
-        label: "",
-    }
 
     render() {
-        const { row, onDeleteRow, label, deleteIcon } = this.props;
+        const { row, onDeleteRow, deleteIcon } = this.props;
+
         return (
             <div>
-                {row.map(i => {
+                {row.map((r, i) => {
                     return (
-                        <div className="form-row pb-1" key={i.key}>
+                        <div className="form-row pb-1" key={r.key}>
                             <div className="col-1">
-                                <input type="text" name="number" className="form-control p-1" defaultValue={`${row.length}`}></input>
+                                <input type="text" name="number" className="form-control p-1" defaultValue={i + 1}></input>
                             </div>
                             <div className="col-9">
                                 <div className="input-group">
-                                    <input type="text" className="form-control" placeholder={label} />
+                                    <input type="text" className="form-control" placeholder={r.props.label} disabled={r.props.disabled ? r.props.disabled : false} />
                                 </div>
 
                             </div>
                             <div className="col-2">
                                 <div className="button-list row">
-                                    <button className="btn btn-light border" onClick={() => onDeleteRow(i)}>
+                                    <button className="btn btn-light border" onClick={() => onDeleteRow(r)}>
                                         <i className={`mdi ${deleteIcon}`}></i>
                                     </button>
                                 </div>
