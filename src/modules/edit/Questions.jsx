@@ -14,8 +14,6 @@ class Questions extends Component {
     }
 
 
-
-
     onAddQuestion = () => {
         const questions = [...this.state.questions]
         const question = <Question
@@ -31,6 +29,7 @@ class Questions extends Component {
 
     onDeleteQuestion = (value) => {
         const questions = this.state.questions.filter(question => question.key !== value.key)
+        console.log(questions);
         this.setState({ questions })
     }
 

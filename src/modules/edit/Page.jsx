@@ -19,6 +19,7 @@ class Page extends Component {
 
         const { pages, onClonePage, onDeletePage, pageClone } = this.props;
 
+
         return (
             <div>
                 <div className="mb-3">

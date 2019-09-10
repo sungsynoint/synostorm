@@ -25,7 +25,7 @@ class Pages extends Component {
                 pageClone={this.state.pageClone}
                 key={uuid()} />
         pages.push(page)
-        this.setState({ pages })
+        this.setState({ pages, pageClone: [] })
     }
 
     onClonePage = (pagekey, array) => {
@@ -50,7 +50,6 @@ class Pages extends Component {
 
 
     render() {
-
         return (
             <div>
                 <Page

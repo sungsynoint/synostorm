@@ -1,7 +1,7 @@
 import React from "react";
 import QuestionOption from './common/QuestionOption';
 import QuestionComponents from "./common/QuestionsComponent";
-import { storeQuestion } from "../../localStorage"
+// import { storeQuestion } from "../../localStorage"
 
 
 class Question extends QuestionComponents {
