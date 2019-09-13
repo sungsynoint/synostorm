@@ -16,7 +16,7 @@ class Dropdown extends Component {
         if (e.key === "Enter") {
             const value = e.target.value;
             const lines = value.split(/\r|\r\n|\n/)
-            const rowInput = this.state.rowInput;
+            const rowInput = [...this.state.rowInput];
             const row = <RowInput
                 key={uuid()}
                 label="Options"
