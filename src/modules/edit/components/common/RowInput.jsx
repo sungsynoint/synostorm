@@ -11,19 +11,19 @@ class RowInput extends Component {
 
                     return (
                         <div key={r.key}>
-                            <div className="form-row pb-1" key={row.key}>
+                            <div className="form-row pb-1">
                                 <div className="col-1">
                                     <input type="text" name="number" className="form-control p-1" defaultValue={i + 1}></input>
                                 </div>
                                 <div className="col-9">
 
-                                    <div className="input-group" id="options" key={Math.random()}>
+                                    <div className="input-group" id="options" >
                                         <input
                                             type="text"
                                             className="form-control"
                                             placeholder={r.props.label}
                                             disabled={r.props.disabled ? r.props.disabled : false}
-                                            onChange={this.props.handleChange}
+                                            onChange={(e) => this.props.handleChange(e)}
                                             value={r.props.value}
                                         />
                                     </div>

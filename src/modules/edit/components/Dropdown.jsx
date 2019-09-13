@@ -10,7 +10,9 @@ class Dropdown extends Component {
         rowInput: [<RowInput key={uuid()} label="Option" />],
     }
 
-
+    handleChange = (e) => {
+        console.log(e.target.value);
+    }
 
     onQuickAdd = (e) => {
         if (e.key === "Enter") {
@@ -42,9 +44,7 @@ class Dropdown extends Component {
         this.setState({ rowInput })
     }
 
-    handleChange = () => {
-        console.log("shit");
-    }
+
 
     onDeleteRow = (row) => {
         const rowInput = this.state.rowInput.filter(i => i.key !== row.key)
