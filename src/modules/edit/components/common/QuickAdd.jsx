@@ -8,11 +8,11 @@ const TextArea = ({ onQuickAdd, label }) => {
                 <div className="form-group mb-3">
                     <textarea
                         className="form-control"
-                        id="textareabox"
-                        onChange={(e) => onQuickAdd(e.target.value)}
-                        rows="3" placeholder={label}
+                        onKeyPress={(e) => onQuickAdd(e)}
+                        rows="3"
+                        placeholder={label}
                         style={{ height: " 150px" }}
-                    />
+                    ></textarea>
                 </div>
             </div>
         </div>
