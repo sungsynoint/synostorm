@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
 import uuid from "uuid/v4"
-import TextArea from './common/QuickAdd';
 import RowInput from './common/RowInput';
 
 class SatisfactionMatrix extends Component {
     state = {
         rowInput: [
-            <RowInput key={uuid()} label="Very Unsatisfied" />,
-            <RowInput key={uuid()} label="Unsatisfied" />,
-            <RowInput key={uuid()} label="Neutral" />,
-            <RowInput key={uuid()} label="Satisfied" />,
-            <RowInput key={uuid()} label="Very Satisfied" />,
+            <RowInput key={uuid()} value="Very Unsatisfied" />,
+            <RowInput key={uuid()} value="Unsatisfied" />,
+            <RowInput key={uuid()} value="Neutral" />,
+            <RowInput key={uuid()} value="Satisfied" />,
+            <RowInput key={uuid()} value="Very Satisfied" />,
         ],
     }
+
+    handleChange = (e, r) => {
+        console.log(e.target.value);
+        console.log(r.props.value);
+    }
+
+
+    onDeleteRow = (row) => {
+        const rowInput = this.state.rowInput.filter(i => i.key !== row.key)
+        this.setState({ rowInput })
+    }
+
     render() {
 
-        const onQuickAdd = (value) => {
-            console.log(value)
-        }
-
-
-        const onDeleteRow = (row) => {
-            const rowInput = this.state.rowInput.filter(i => i.key !== row.key)
-            this.setState({ rowInput })
-        }
-
         return (
-            <div className="row chart-content-bg p-2 my-4">
-                <div className="col-12">
-                    <div className="row">
-                        <div className="col-7 pr-0">
-                            <RowInput row={this.state.rowInput} onDeleteRow={onDeleteRow} deleteIcon="mdi-table-row-remove" />
-                        </div>
-                        <TextArea onQuickAdd={onQuickAdd} label="Quick add sub-questions" />
-                    </div>
-                </div>
+            <div className="chart-content-bg p-2 my-4">
+                <RowInput
+                    row={this.state.rowInput}
+                    deleteIcon="mdi-table-row-remove"
+                    onDeleteRow={this.onDeleteRow}
+                    handleChange={this.handleChange}
+                />
             </div>
         );
     }

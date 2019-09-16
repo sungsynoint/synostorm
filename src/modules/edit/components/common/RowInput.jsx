@@ -4,11 +4,9 @@ class RowInput extends Component {
 
     render() {
         const { row, onDeleteRow, deleteIcon, } = this.props;
-
         return (
             <div>
                 {row.map((r, i) => {
-
                     return (
                         <div key={r.key}>
                             <div className="form-row pb-1">
@@ -23,8 +21,8 @@ class RowInput extends Component {
                                             className="form-control"
                                             placeholder={r.props.label}
                                             disabled={r.props.disabled ? r.props.disabled : false}
-                                            onChange={(e) => this.props.handleChange(e)}
-                                            value={r.props.value}
+                                            onChange={(e) => this.props.handleChange(e, r)}
+                                            defaultValue={r.props.value}
                                         />
                                     </div>
 

@@ -10,8 +10,9 @@ class Dropdown extends Component {
         rowInput: [<RowInput key={uuid()} label="Option" />],
     }
 
-    handleChange = (e) => {
+    handleChange = (e, r) => {
         console.log(e.target.value);
+        console.log(r.props.value);
     }
 
     onQuickAdd = (e) => {
@@ -28,6 +29,8 @@ class Dropdown extends Component {
             rowInput.push(row)
             this.setState({ rowInput })
         }
+
+        console.log(e.target.value);
     }
 
     onAddRow = () => {
@@ -44,14 +47,10 @@ class Dropdown extends Component {
         this.setState({ rowInput })
     }
 
-
-
     onDeleteRow = (row) => {
         const rowInput = this.state.rowInput.filter(i => i.key !== row.key)
         this.setState({ rowInput })
     }
-
-
 
     render() {
         return (
@@ -65,7 +64,6 @@ class Dropdown extends Component {
                                     deleteIcon="mdi-playlist-remove"
                                     onDeleteRow={this.onDeleteRow}
                                     handleChange={this.handleChange}
-                                    test={this.state.text}
                                 />
                                 <AddRow onAddRow={this.onAddRow}
                                     label="Add option"
@@ -73,7 +71,6 @@ class Dropdown extends Component {
                                 <AddOther addOther={this.addOther} />
                             </div>
                             <TextArea onQuickAdd={this.onQuickAdd} label="Quick add options" />
-
                         </div>
                     </div>
                 </div>
