@@ -22,6 +22,7 @@ class Page extends Component {
 
         return (
             <div>
+
                 <div className="mb-3">
                     <div ref={this.dragulaDecorator}>
                         {pages.map((page, i) =>
@@ -41,7 +42,9 @@ class Page extends Component {
                                         pageClone={pageClone}
                                         onDeletePage={onDeletePage} />
                                 )}
-                            </div>)}
+                            </div>)
+
+                        }
                     </div>
                 </div>
             </div>

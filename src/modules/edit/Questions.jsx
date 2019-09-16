@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uuid from "uuid/v4"
-import PageHeader from './common/PageHeader';
+import QuestionHeader from './common/QuestionHeader';
 import AddQuestion from './components/common/AddQuestion';
 import Question from './Question';
 
@@ -53,7 +53,7 @@ class Questions extends Component {
     render() {
 
         const renderQuestion = this.state.questions.map((question, i) =>
-            <div className="row card-body" key={question.key}>
+            <div className="row card-body collapse show" id="questions" key={question.key}>
                 <div className="col-1 px-1">
                     <div className="mx-2">
                         <p className="text-dark mt-0 mb-0 font-13">
@@ -69,15 +69,19 @@ class Questions extends Component {
                 </div>
                 <div className="col-1 table m-0 px-1">
                     <div className="table-action py-0 border-0 p-0" >
-                        <span className="action-icon btn font-15" onClick={() => this.onCloneQuestion(question)}> <i className="mdi mdi-file-multiple"></i></span>
-                        <span className="action-icon btn" onClick={() => this.onDeleteQuestion(question)}> <i className="mdi mdi-delete"></i></span>
+                        <span className="action-icon btn font-15" onClick={() => this.onCloneQuestion(question)}>
+                            <i className="mdi mdi-file-multiple"></i>
+                        </span>
+                        <span className="action-icon btn" onClick={() => this.onDeleteQuestion(question)}>
+                            <i className="mdi mdi-delete"></i>
+                        </span>
                     </div>
                 </div>
             </div>
         )
 
         const renderCloneQuestion = this.state.pageClone.map((qclone, i) =>
-            <div className="row" key={qclone.key}>
+            <div className="row card-body collapse show" id="questions" key={qclone.key}>
                 <div className="col-1">
                     <div className="mx-2">
                         <p className="text-dark mt-0 mb-0 font-13">
@@ -101,7 +105,7 @@ class Questions extends Component {
         )
 
         return (<div>
-            <PageHeader
+            <QuestionHeader
                 page={this.props.page}
                 i={this.props.i}
                 onClonePage={() => this.props.onClonePage(this.props.page.key, this.state.questions)}

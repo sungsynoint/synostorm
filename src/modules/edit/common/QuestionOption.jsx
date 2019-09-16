@@ -11,7 +11,6 @@ const QuestionOption = ({ questions, getOption }) => {
                             className="form-control"
                             placeholder="Question title"
                             style={{ border: "2px dashed rgb(238, 239, 245)" }}
-
                         />
                     </div>
                 </form>

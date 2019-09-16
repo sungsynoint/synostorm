@@ -1,7 +1,6 @@
 import React from "react";
 import QuestionOption from './common/QuestionOption';
 import QuestionComponents from "./common/QuestionsComponent";
-// import { storeQuestion } from "../../localStorage"
 
 
 class Question extends QuestionComponents {
@@ -46,6 +45,7 @@ class Question extends QuestionComponents {
                         questions={this.questions}
                         getOption={this.getOption}
                     />
+
                     <GetQuestion />
                 </div>
 

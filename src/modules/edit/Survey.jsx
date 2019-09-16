@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getSurveys } from "../../localStorage"
 import SurveyStatus from "./common/SurveyStatus"
-import NavBar from "./common/TapBar"
+import NavBar from "./common/TabBar"
 import Pages from './Pages';
 import LeftMenu from "../common/leftMenu"
 
@@ -39,9 +39,26 @@ class Survey extends Component {
                             <div className="col-12">
                                 <NavBar />
                                 <SurveyStatus survey={survey} badges={badges} />
+
+                            </div>
+                            <div className="col-12 float-right button-list text-right">
+                                <button
+                                    href="#questions"
+                                    aria-controls="#questions"
+                                    type="button"
+                                    className="btn btn-icon btn-light border btn-sm"
+                                    data-toggle="collapse"
+                                    aria-expanded="true"
+                                >
+                                    <i className="mdi mdi-arrow-expand"></i>
+                                </button>
+                                <button type="button" className="btn btn-icon btn-danger btn-sm" disabled>
+                                    <i className="mdi mdi-window-close"></i>
+                                </button>
                             </div>
                         </div>
-                        <div className=" mt-4">
+
+                        <div className="mt-4">
                             <Pages />
                         </div>
                     </div>

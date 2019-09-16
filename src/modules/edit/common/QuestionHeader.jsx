@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class PageHeader extends Component {
+class QuestionHeader extends Component {
 
     render() {
 
@@ -38,4 +38,4 @@ class PageHeader extends Component {
     }
 }
 
-export default PageHeader;
+export default QuestionHeader;
