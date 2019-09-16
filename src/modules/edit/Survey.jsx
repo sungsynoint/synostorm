@@ -6,6 +6,7 @@ import Pages from './Pages';
 import LeftMenu from "../common/leftMenu"
 
 
+
 class Survey extends Component {
 
     render() {
@@ -41,7 +42,7 @@ class Survey extends Component {
                                 <SurveyStatus survey={survey} badges={badges} />
 
                             </div>
-                            <div className="col-12 float-right button-list text-right">
+                            <div className="col-12 button-list text-right">
                                 <button
                                     href="#questions"
                                     aria-controls="#questions"
@@ -57,7 +58,6 @@ class Survey extends Component {
                                 </button>
                             </div>
                         </div>
-
                         <div className="mt-4">
                             <Pages />
                         </div>

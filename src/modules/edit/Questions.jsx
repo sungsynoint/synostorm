@@ -4,6 +4,7 @@ import QuestionHeader from './common/QuestionHeader';
 import AddQuestion from './components/common/AddQuestion';
 import Question from './Question';
 
+
 class Questions extends Component {
     state = {
         questions: [
@@ -54,11 +55,13 @@ class Questions extends Component {
 
         const renderQuestion = this.state.questions.map((question, i) =>
             <div className="row card-body collapse show" id="questions" key={question.key}>
+
                 <div className="col-1 px-1">
                     <div className="mx-2">
                         <p className="text-dark mt-0 mb-0 font-13">
                             Q{i + 1}
                         </p>
+
                         <span className="card-subtitle text-muted" style={{ fontSize: "11px" }}>
                             {question.key.toString().substring(0, 8)}
                         </span>
