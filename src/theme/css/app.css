@@ -16600,8 +16600,8 @@ div.dt-button-info h2 {
   margin: 0 px;
 }
 
-.text-area>.ck.ck-editor__editable, 
-.row_input>.ck.ck-editor__editable  {
+.text-area>.ck.ck-editor__editable,
+.row_input>.ck.ck-editor__editable {
   display: block;
   width: 100%;
   padding: 0.45rem 0.9rem;
@@ -16627,4 +16627,8 @@ div.dt-button-info h2 {
 
 .row_input>.ck.ck-editor__editable p {
   margin: 0px;
+}
+
+.card .card-widgets>.collapsed {
+  color: var(--success);
 }

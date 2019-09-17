@@ -54,7 +54,7 @@ class Questions extends Component {
     render() {
 
         const renderQuestion = this.state.questions.map((question, i) =>
-            <div className="row card-body collapse show" id="questions" key={question.key}>
+            <div className="row card-body" key={question.key}>
 
                 <div className="col-1 px-1">
                     <div className="mx-2">
@@ -84,7 +84,7 @@ class Questions extends Component {
         )
 
         const renderCloneQuestion = this.state.pageClone.map((qclone, i) =>
-            <div className="row card-body collapse show" id="questions" key={qclone.key}>
+            <div className="row card-body" key={qclone.key}>
                 <div className="col-1">
                     <div className="mx-2">
                         <p className="text-dark mt-0 mb-0 font-13">
@@ -114,10 +114,12 @@ class Questions extends Component {
                 onClonePage={() => this.props.onClonePage(this.props.page.key, this.state.questions)}
                 onDeletePage={this.props.onDeletePage}
             />
-            <div className="card-body collapse show" id={`page${this.props.page.key}`}>
-                {renderCloneQuestion.length > 1 ? renderCloneQuestion : renderQuestion}
+            <div className="collapse show" id="questions">
+                <div className="card-body collapse show" id={`page${this.props.page.key}`}>
+                    {renderCloneQuestion.length > 1 ? renderCloneQuestion : renderQuestion}
+                </div>
+                <AddQuestion onAddQuestion={this.onAddQuestion} />
             </div>
-            <AddQuestion onAddQuestion={this.onAddQuestion} />
         </div>);
     }
 }
