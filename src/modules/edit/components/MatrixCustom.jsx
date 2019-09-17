@@ -112,7 +112,7 @@ class MatixCustom extends Component {
 
 
         return (
-            <div className="row pb-5 chart-content-bg my-4">
+            <div className="row pb-5 my-4">
                 <div className="col-12">
                     <NavItems />
                     <div className="tab-content">

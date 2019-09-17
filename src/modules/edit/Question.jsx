@@ -39,7 +39,7 @@ class Question extends QuestionComponents {
 
 
         return (
-            <div>
+            <React.Fragment>
                 <div className="col-12">
                     <QuestionOption
                         questions={this.questions}
@@ -49,7 +49,7 @@ class Question extends QuestionComponents {
                     <GetQuestion />
                 </div>
 
-            </div>
+            </React.Fragment>
 
         )
     }

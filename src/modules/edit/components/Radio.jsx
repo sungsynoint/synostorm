@@ -62,7 +62,7 @@ class SatisfactionMatrix extends Component {
     render() {
 
         return (
-            <div className="chart-content-bg p-3 my-4">
+            <div className="p-3 my-4">
                 <div className="col-12">
                     <div className="row">
                         <div className="col-7 pr-0">

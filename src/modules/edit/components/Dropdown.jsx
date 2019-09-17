@@ -10,10 +10,10 @@ class Dropdown extends Component {
         rowInput: [<RowInput key={uuid()} label="Option" />],
     }
 
-    handleChange = (e, r) => {
-        console.log(e.target.value);
-        console.log(r.props.value);
-    }
+    // handleChange = (e, r) => {
+    //     console.log(e.target.value);
+    //     console.log(r.props.value);
+    // }
 
     onQuickAdd = (e) => {
         if (e.key === "Enter") {
@@ -55,7 +55,7 @@ class Dropdown extends Component {
     render() {
         return (
             <div>
-                <div className="row chart-content-bg p-2 my-4">
+                <div className="row p-2 my-4">
                     <div className="col-12">
                         <div className="row">
                             <div className="col-7 pr-0">

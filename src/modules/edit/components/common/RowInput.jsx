@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CKEditor from '@ckeditor/ckeditor5-react';
+import InlineEditor from '@ckeditor/ckeditor5-build-inline';
 
 class RowInput extends Component {
 
@@ -13,18 +15,50 @@ class RowInput extends Component {
                                 <div className="col-1">
                                     <input type="text" name="number" className="form-control p-1" defaultValue={i + 1}></input>
                                 </div>
-                                <div className="col-9">
+                                <div className="col-9 row_input">
+                                    <CKEditor
+                                        editor={InlineEditor}
+                                        data={r.props.value}
+                                        config={
+                                            {
+                                                placeholder: `${r.props.label}`,
+                                                language: 'en',
+                                                heading: {
+                                                    options: [
+                                                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                                                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                                                        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3 my-0' },
+                                                        { model: 'paragraph', view: 'p', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                                                    ]
+                                                },
+                                                image: {
+                                                    toolbar: [
+                                                        'imageStyle:full',
+                                                        'imageStyle:side',
+                                                        '|',
+                                                        'imageTextAlternative'
+                                                    ]
+                                                },
+                                            }
+                                        }
+                                        onInit={editor => {
+                                            console.log(editor, "here editor");
+                                            console.log(editor.ui);
 
-                                    <div className="input-group" id="options" >
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder={r.props.label}
-                                            disabled={r.props.disabled ? r.props.disabled : false}
-                                            onChange={(e) => this.props.handleChange(e, r)}
-                                            defaultValue={r.props.value}
-                                        />
-                                    </div>
+                                        }}
+                                        onChange={(event, editor) => {
+                                            console.log(event, editor);
+                                        }}
+                                        onBlur={(event, editor) => {
+                                            console.log(event, editor);
+
+                                        }}
+                                        onFocus={(event, editor) => {
+                                            console.log(event, editor);
+                                        }}
+                                    // disabled={r.props.disabled ? r.props.disabled : false}
+                                    />
+
 
                                 </div>
                                 <div className="col-2">

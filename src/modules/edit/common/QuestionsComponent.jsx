@@ -17,10 +17,10 @@ class QuestionComponents extends Component {
                     label: "Free input",
                     content: <FreeText id={uuid()} />,
                 },
-                {
-                    label: "Date",
-                    content: <Date id={uuid()} />,
-                },
+                // {
+                //     label: "Date",
+                //     content: <Date id={uuid()} />,
+                // },
             ]
         },
 

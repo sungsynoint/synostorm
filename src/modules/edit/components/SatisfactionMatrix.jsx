@@ -27,7 +27,7 @@ class SatisfactionMatrix extends Component {
     render() {
 
         return (
-            <div className="chart-content-bg p-2 my-4">
+            <div className="p-5">
                 <RowInput
                     row={this.state.rowInput}
                     deleteIcon="mdi-table-row-remove"
