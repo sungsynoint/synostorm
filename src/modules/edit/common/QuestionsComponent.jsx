@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import uuid from "uuid/v4"
 import FreeText from '../components/FreeText';
-import Date from '../components/Date';
 import Dropdown from '../components/Dropdown';
 import SatisfactionMatrix from '../components/SatisfactionMatrix';
 import MatrixCustom from '../components/MatrixCustom';
@@ -17,10 +16,6 @@ class QuestionComponents extends Component {
                     label: "Free input",
                     content: <FreeText id={uuid()} />,
                 },
-                // {
-                //     label: "Date",
-                //     content: <Date id={uuid()} />,
-                // },
             ]
         },
 

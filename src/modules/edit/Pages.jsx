@@ -51,7 +51,7 @@ class Pages extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Page
                     pages={this.state.pages}
                     onAddPage={this.onAddPage}
@@ -61,7 +61,7 @@ class Pages extends Component {
                 />
 
                 <AddPage onAddPage={this.onAddPage} />
-            </div>
+            </React.Fragment>
 
         )
     }

@@ -56,7 +56,7 @@ class RowInput extends Component {
                                         onFocus={(event, editor) => {
                                             console.log(event, editor);
                                         }}
-                                    // disabled={r.props.disabled ? r.props.disabled : false}
+                                        disabled={r.props.disabled ? r.props.disabled : false}
                                     />
 
 
